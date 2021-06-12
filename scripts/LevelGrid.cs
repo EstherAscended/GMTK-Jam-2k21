@@ -118,6 +118,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
+                // Fuck you Russell
                 trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition, 180);
             }
         }
