@@ -31,7 +31,7 @@ public class Station : Sprite
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Gold.PNG");
                 break;
             case Resources.Mail:
-                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Oil.PNG");
+                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Mail.PNG");
                 break;
             case Resources.Oil:
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Oil.PNG");
@@ -50,10 +50,11 @@ public class Station : Sprite
         GD.Print("station entered");
         if (!HasGivenResource && trainArea.GetParent().Name.Contains("Train"))
         {
-            GD.Print("station given resource");
+            GD.Print("I'm so full of ", AvailableResource.ToString(), " yum!");
             trainArea.GetParent<Train>().HeldGoods.Add(AvailableResource);
             HasGivenResource = true;
             resourceSprite.Texture = new ImageTexture();
+            GetNode<SFX>("../PickUpSFX").Play();
         }
     }
 }
