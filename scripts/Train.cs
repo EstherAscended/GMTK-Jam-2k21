@@ -9,7 +9,7 @@ public class Train : Sprite
     [Export]
     public float TrainSpeed = 1;
 
-    private Queue<Tuple<Vector2, float>> waypointQueueWithEndAngle;
+    private Queue<Vector2> waypointQueue;
     public Vector2 lastWaypoint;
     private float displacementEpsilon = 1f;
     public Node2D LastTouchedTile;
@@ -17,7 +17,7 @@ public class Train : Sprite
     
     public override void _Ready()
     {
-        waypointQueueWithEndAngle = new Queue<Tuple<Vector2, float>>();
+        waypointQueue = new Queue<Vector2>();
         lastWaypoint = this.Position;
         LastTouchedTile = new Node2D();
         SecondLastTouchedTile = new Node2D();
@@ -31,9 +31,9 @@ public class Train : Sprite
     // Figure out whether we're going straight or curvy and call the corresponding function
     private void MoveToWaypoint(float delta) 
     {
-        if (waypointQueueWithEndAngle.Count == 0) return; // No waypoints in queue, so do nothing.
+        if (waypointQueue.Count == 0) return; // No waypoints in queue, so do nothing.
         
-        Vector2 nextWaypoint = waypointQueueWithEndAngle.Peek().Item1;
+        Vector2 nextWaypoint = waypointQueue.Peek();
         Vector2 direction = this.GlobalPosition.DirectionTo(nextWaypoint);
         double angle = Math.Atan2(direction.y, direction.x);
         this.GlobalRotation = (float) angle;
@@ -43,40 +43,19 @@ public class Train : Sprite
         {
             this.Position = nextWaypoint;
             lastWaypoint = nextWaypoint;
-            waypointQueueWithEndAngle.Dequeue();
+            GD.Print("==========");
+            foreach (Vector2 waypoint in waypointQueue)
+            {
+                GD.Print(waypoint);
+            }
+            GD.Print("==========");
+            waypointQueue.Dequeue();
         }
     }
-    
-    // private bool MoveToWaypointStraight(float delta, Vector2 nextWaypoint)
-    // {
-    //     this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
-    //     if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
-    //     {
-    //         this.Position = nextWaypoint;
-    //         lastWaypoint = nextWaypoint;
-    //         waypointQueueWithEndAngle.Dequeue();
-    //         return true; // We did reach the next waypoint
-    //     }
-    //     return false; // We didn't reach the next waypoint
-    // }
-    //
-    // private bool MoveToWaypointCurve(float delta, Vector2 nextWaypoint, float nextWayPointEndAngle) 
-    // {
-    //     this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
-    //     if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
-    //     {
-    //         this.Position = nextWaypoint;
-    //         lastWaypoint = nextWaypoint;
-    //         waypointQueueWithEndAngle.Dequeue();
-    //         this.GlobalRotationDegrees = nextWayPointEndAngle;
-    //         return true; // We did reach the next waypoint
-    //     }
-    //     return false; // We didn't reach the next waypoint
-    // }
 
-    public void AddWaypoint(Vector2 newPosition, float nextWaypointEndAngle)
+    public void AddWaypoint(Vector2 newPosition)
     { 
-        waypointQueueWithEndAngle.Enqueue(new Tuple<Vector2, float>(newPosition, nextWaypointEndAngle));
+        waypointQueue.Enqueue(newPosition);
     }
 
     private Vector2 Lerp(Vector2 firstVector, Vector2 secondVector, float delta)
