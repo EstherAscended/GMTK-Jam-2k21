@@ -20,9 +20,6 @@ position = Vector2( 800, 368 )
 [node name="TileHorizontal9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 800, 240 )
 
-[node name="TileHorizontal10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1112, 168 )
-
 [node name="TileHorizontal" parent="." instance=ExtResource( 3 )]
 
 [node name="TileHorizontal3" parent="." instance=ExtResource( 3 )]

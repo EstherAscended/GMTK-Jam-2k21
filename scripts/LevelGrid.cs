@@ -13,7 +13,7 @@ public class LevelGrid : Node2D
         lastTouchedArea = emptyArea;
     }
 
-    public void OnStraightEnter0(Area2D trainArea)
+    public void LeftToRight(Area2D trainArea)
     {
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
@@ -26,12 +26,12 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter1/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToLeft/Area2D").GlobalPosition);
             }
         }
     }
     
-    public void OnStraightEnter1(Area2D trainArea)
+    public void RightToLeft(Area2D trainArea)
     {
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
@@ -44,12 +44,12 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter0/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToRight/Area2D").GlobalPosition);
             }
         }
     }
     
-    public void OnStraightEnter2(Area2D trainArea)
+    public void TopToBottom(Area2D trainArea)
     {
         //GD.Print("enter 2");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
@@ -63,11 +63,11 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToTop/Area2D").GlobalPosition);
             }
         }
     }
-    public void OnStraightEnter3(Area2D trainArea)
+    public void BottomToTop(Area2D trainArea)
     {
         //GD.Print("enter 3");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
@@ -81,11 +81,11 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToBottom/Area2D").GlobalPosition);
             }
         }
     }
-    public void OnStraightEnter4(Area2D trainArea)
+    public void LeftToBottom(Area2D trainArea)
     {
         //GD.Print("enter 4");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
@@ -99,11 +99,11 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition);
             }
         }
     }
-    public void OnStraightEnter5(Area2D trainArea)
+    public void BottomToLeft(Area2D trainArea)
     {
         //GD.Print("enter 5");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
@@ -117,19 +117,45 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition);
             }
         }
     }
-    public void OnStraightEnter6(Area2D trainArea)
+    public void RightToBottom(Area2D trainArea)
     {
         //GD.Print("enter 6");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter7/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter7/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 4");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition);
+            }
+        }
     }
-    public void OnStraightEnter7(Area2D trainArea)
+    public void BottomToRight(Area2D trainArea)
     {
         //GD.Print("enter 7");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 5");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition);
+            }
+        }
     }
     
     //This method exists to attempt and prevent the train from turning around whenever it contacts to waypoints

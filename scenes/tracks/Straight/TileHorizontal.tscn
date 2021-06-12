@@ -11,27 +11,27 @@ position = Vector2( 128, 296 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Enter0" type="Node2D" parent="."]
+[node name="LeftToRight" type="Node2D" parent="."]
 position = Vector2( -64, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="Enter0"]
+[node name="Area2D" type="Area2D" parent="LeftToRight"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter0/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftToRight/Area2D"]
 shape = SubResource( 1 )
 
-[node name="Enter1" type="Node2D" parent="."]
+[node name="RightToLeft" type="Node2D" parent="."]
 position = Vector2( 64, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Area2D" type="Area2D" parent="Enter1"]
+[node name="Area2D" type="Area2D" parent="RightToLeft"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightToLeft/Area2D"]
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="Enter0/Area2D" to="." method="OnStraightEnter0"]
-[connection signal="area_entered" from="Enter1/Area2D" to="." method="OnStraightEnter1"]
+[connection signal="area_entered" from="LeftToRight/Area2D" to="." method="LeftToRight"]
+[connection signal="area_entered" from="RightToLeft/Area2D" to="." method="RightToLeft"]
