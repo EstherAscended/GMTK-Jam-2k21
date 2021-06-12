@@ -17,7 +17,7 @@ public class LevelGrid : Node2D
 
     public void LeftToRight(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -33,7 +33,7 @@ public class LevelGrid : Node2D
     
     public void RightToLeft(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -48,7 +48,7 @@ public class LevelGrid : Node2D
     
     public void TopToBottom(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -62,7 +62,7 @@ public class LevelGrid : Node2D
     }
     public void BottomToTop(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -76,7 +76,7 @@ public class LevelGrid : Node2D
     }
     public void LeftToBottom(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -100,7 +100,7 @@ public class LevelGrid : Node2D
     
     public void BottomToLeft(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -123,7 +123,7 @@ public class LevelGrid : Node2D
     }
     public void LeftToTop(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -146,7 +146,7 @@ public class LevelGrid : Node2D
     }
     public void TopToLeft(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -169,7 +169,7 @@ public class LevelGrid : Node2D
     }
     public void RightToBottom(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -193,7 +193,7 @@ public class LevelGrid : Node2D
 
     public void BottomToRight(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -217,7 +217,7 @@ public class LevelGrid : Node2D
 
     public void RightToTop(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -240,7 +240,7 @@ public class LevelGrid : Node2D
     }
     public void TopToRight(Area2D trainArea)
     {
-        if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (trainArea.Name != "WaypointCollider") return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -260,6 +260,11 @@ public class LevelGrid : Node2D
             }
             train.AddWaypoint(finalPosition);
         }
+    }
+
+    public void OnCrash(Area2D trainArea)
+    {
+        GD.Print("you've crashed and this time don't mucking delete this cathan");
     }
     
     //This method exists to attempt and prevent the train from turning around whenever it contacts to waypoints

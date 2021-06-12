@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mumbling.ogg-3a6c51ad054aa155a33577205f6d119a.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/intro/mumbling.ogg"
+dest_files=[ "res://.import/mumbling.ogg-3a6c51ad054aa155a33577205f6d119a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
