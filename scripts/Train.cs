@@ -32,55 +32,47 @@ public class Train : Sprite
     private void MoveToWaypoint(float delta) 
     {
         if (waypointQueueWithEndAngle.Count == 0) return; // No waypoints in queue, so do nothing.
-
+        
         Vector2 nextWaypoint = waypointQueueWithEndAngle.Peek().Item1;
-        float nextWayPointEndAngle = waypointQueueWithEndAngle.Peek().Item2; // This is either 1, 0 or -1 representing right, straight and left respectively
+        Vector2 direction = this.GlobalPosition.DirectionTo(nextWaypoint);
+        double angle = Math.Atan2(direction.y, direction.x);
+        this.GlobalRotation = (float) angle;
 
-        bool nextWaypointReached = false;
-        if (AreFloatsCloseEnough(nextWayPointEndAngle, this.GlobalRotationDegrees, 1f))
+        this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
+        if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
         {
-            nextWaypointReached = MoveToWaypointStraight(delta, nextWaypoint);
-        } else 
-        {
-            nextWaypointReached = MoveToWaypointCurve(delta, nextWaypoint, nextWayPointEndAngle);
+            this.Position = nextWaypoint;
+            lastWaypoint = nextWaypoint;
+            waypointQueueWithEndAngle.Dequeue();
         }
-
-        if (nextWaypointReached)
-        { // Check if the next waypoint includes a curve. If so, start turning. Also don't do that check if the queue is empty, because it'll crash
-            if (waypointQueueWithEndAngle.Count != 0 && !AreFloatsCloseEnough(waypointQueueWithEndAngle.Peek().Item2, this.RotationDegrees, 1))
-            {
-                this.GlobalRotationDegrees = (waypointQueueWithEndAngle.Peek().Item2 + this.RotationDegrees) / 2;
-            }
-        }
-
     }
     
-    private bool MoveToWaypointStraight(float delta, Vector2 nextWaypoint)
-    {
-        this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
-        if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
-        {
-            this.Position = nextWaypoint;
-            lastWaypoint = nextWaypoint;
-            waypointQueueWithEndAngle.Dequeue();
-            return true; // We did reach the next waypoint
-        }
-        return false; // We didn't reach the next waypoint
-    }
-
-    private bool MoveToWaypointCurve(float delta, Vector2 nextWaypoint, float nextWayPointEndAngle) 
-    {
-        this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
-        if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
-        {
-            this.Position = nextWaypoint;
-            lastWaypoint = nextWaypoint;
-            waypointQueueWithEndAngle.Dequeue();
-            this.GlobalRotationDegrees = nextWayPointEndAngle;
-            return true; // We did reach the next waypoint
-        }
-        return false; // We didn't reach the next waypoint
-    }
+    // private bool MoveToWaypointStraight(float delta, Vector2 nextWaypoint)
+    // {
+    //     this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
+    //     if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
+    //     {
+    //         this.Position = nextWaypoint;
+    //         lastWaypoint = nextWaypoint;
+    //         waypointQueueWithEndAngle.Dequeue();
+    //         return true; // We did reach the next waypoint
+    //     }
+    //     return false; // We didn't reach the next waypoint
+    // }
+    //
+    // private bool MoveToWaypointCurve(float delta, Vector2 nextWaypoint, float nextWayPointEndAngle) 
+    // {
+    //     this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
+    //     if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
+    //     {
+    //         this.Position = nextWaypoint;
+    //         lastWaypoint = nextWaypoint;
+    //         waypointQueueWithEndAngle.Dequeue();
+    //         this.GlobalRotationDegrees = nextWayPointEndAngle;
+    //         return true; // We did reach the next waypoint
+    //     }
+    //     return false; // We didn't reach the next waypoint
+    // }
 
     public void AddWaypoint(Vector2 newPosition, float nextWaypointEndAngle)
     { 
