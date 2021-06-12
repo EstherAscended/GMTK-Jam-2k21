@@ -34,19 +34,19 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Crash" type="Node2D" parent="."]
+position = Vector2( 0, -104 )
 
 [node name="Area2D" type="Area2D" parent="Crash"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crash/Area2D"]
-position = Vector2( 0, -104 )
 shape = SubResource( 2 )
 
 [node name="Crash2" type="Node2D" parent="."]
+position = Vector2( 0, 104 )
 
 [node name="Area2D" type="Area2D" parent="Crash2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crash2/Area2D"]
-position = Vector2( 0, 104 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="LeftToRight/Area2D" to="." method="LeftToRight"]
