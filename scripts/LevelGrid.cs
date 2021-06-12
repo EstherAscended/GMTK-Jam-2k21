@@ -6,6 +6,9 @@ public class LevelGrid : Node2D
     private bool canAddWaypoint = true;
     private Node2D emptyArea;
     private float waypointDelay = 3f;
+    
+    private double smoothness = 8;  // How many waypoints created when going around a corner
+    private int distAroundCorner = 104; // Half a tile length +4 
     public override void _Ready()
     {
         //This is perhaps a temp solution for dealing with the tile overlap. Could change to check direction
@@ -14,8 +17,7 @@ public class LevelGrid : Node2D
 
     public void LeftToRight(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
-       // if (!trainArea.GetParent().Name.Contains("Train")) return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -31,7 +33,7 @@ public class LevelGrid : Node2D
     
     public void RightToLeft(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -46,7 +48,7 @@ public class LevelGrid : Node2D
     
     public void TopToBottom(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -60,7 +62,7 @@ public class LevelGrid : Node2D
     }
     public void BottomToTop(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -74,7 +76,7 @@ public class LevelGrid : Node2D
     }
     public void LeftToBottom(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -86,15 +88,19 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(82, 18);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition - new Vector2(distAroundCorner * (float) (Math.Sin(angle)), 
+                    -distAroundCorner * (float) (1 + Math.Cos(angle))));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
     
     public void BottomToLeft(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -106,14 +112,18 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(-18, -82);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition - new Vector2(distAroundCorner * (float) (1 + Math.Cos(angle)), 
+                    -distAroundCorner * (float) Math.Sin(angle)));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
     public void LeftToTop(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x > train.waypointQueue.Peek().x) return;
 
@@ -125,14 +135,18 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("LeftToTop/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("TopToLeft/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(82, -18);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition - new Vector2(distAroundCorner * (float) (Math.Sin(angle)), 
+                    distAroundCorner * (float) (1 + Math.Cos(angle))));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
     public void TopToLeft(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -144,14 +158,18 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("TopToLeft/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("LeftToTop/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(-18, 82);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition - new Vector2(distAroundCorner * (float) (1 + Math.Cos(angle)), 
+                    distAroundCorner * (float) Math.Sin(angle)));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
     public void RightToBottom(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -163,15 +181,19 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(-82, 18);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition + new Vector2(distAroundCorner * (float) (Math.Sin(angle)), 
+                    distAroundCorner * (float) (1 + Math.Cos(angle))));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
 
     public void BottomToRight(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y < train.waypointQueue.Peek().y) return;
 
@@ -182,16 +204,20 @@ public class LevelGrid : Node2D
             ResetWaypointAdding(waypointDelay);
             Vector2 initialPosition = GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition;
-                
-            Vector2 midpoint = initialPosition + new Vector2(18, -82);
-            train.AddWaypoint(midpoint);
+
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition + new Vector2(distAroundCorner * (float) (1 + Math.Cos(angle)), 
+                    distAroundCorner * (float) Math.Sin(angle)));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
 
     public void RightToTop(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.x < train.waypointQueue.Peek().x) return;
 
@@ -203,14 +229,18 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("RightToTop/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("TopToRight/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(82, 18);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition + new Vector2(distAroundCorner * (float) (Math.Sin(angle)), 
+                    -distAroundCorner * (float) (1 + Math.Cos(angle))));
+            }
             train.AddWaypoint(finalPosition);
         }
     }
     public void TopToRight(Area2D trainArea)
     {
-        if (trainArea.Name != "WaypointCollider") return;
+        if (!trainArea.GetParent().Name.Contains("Train")) return;
         Train train = trainArea.GetParent<Train>();
         if (train.waypointQueue.Count > 0 && train.lastWaypoint.y > train.waypointQueue.Peek().y) return;
 
@@ -222,15 +252,14 @@ public class LevelGrid : Node2D
             Vector2 initialPosition = GetNode<Area2D>("TopToRight/Area2D").GlobalPosition;
             Vector2 finalPosition = GetNode<Area2D>("RightToTop/Area2D").GlobalPosition;
                 
-            Vector2 midpoint = initialPosition + new Vector2(18, 82);
-            train.AddWaypoint(midpoint);
+            for (int i = 1; i < smoothness; i++)
+            {
+                double angle = Math.PI + i * Math.PI / 2 / smoothness;
+                train.AddWaypoint(initialPosition + new Vector2(distAroundCorner * (float) (1 + Math.Cos(angle)), 
+                    -distAroundCorner * (float) Math.Sin(angle)));
+            }
             train.AddWaypoint(finalPosition);
         }
-    }
-
-    public void OnCrash(Area2D trainArea)
-    {
-        GD.Print("oh shizzle u crashed");
     }
     
     //This method exists to attempt and prevent the train from turning around whenever it contacts to waypoints
