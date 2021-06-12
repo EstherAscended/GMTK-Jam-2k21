@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/art/rail_junction.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Rail T junction block 1.PNG" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelGrid.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -10,7 +10,7 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="LeftToRight" type="Node2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -100, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -21,7 +21,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="RightToLeft" type="Node2D" parent="."]
-position = Vector2( 64, 0 )
+position = Vector2( 100, 0 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -32,7 +32,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Crash" type="Node2D" parent="."]
-position = Vector2( 0, 40 )
+position = Vector2( 0, 100 )
 __meta__ = {
 "_edit_group_": true
 }
