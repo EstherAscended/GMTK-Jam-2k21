@@ -100,7 +100,27 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition, 90);
+                Vector2 initialPosition = GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition;
+                Vector2 finalPosition = GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition;
+                float finalAngle = 90;
+                Train train = trainArea.GetParent<Train>();
+                
+                Vector2 second = initialPosition + new Vector2(37, 0);
+                Vector2 third = initialPosition + new Vector2(54, 1);
+                Vector2 fourth = initialPosition + new Vector2(68, 7);
+                Vector2 fifth = initialPosition + new Vector2(82, 18);
+                Vector2 sixth = initialPosition + new Vector2(92, 31);
+                Vector2 seventh = initialPosition + new Vector2(98, 145);
+                Vector2 penultimate = finalPosition + new Vector2(0, -37);
+                
+                train.AddWaypoint(second, finalAngle - 78.75f);
+                train.AddWaypoint(third, finalAngle - 67.5f);
+                train.AddWaypoint(fourth, finalAngle - 56.25f);
+                train.AddWaypoint(fifth, finalAngle - 45f);
+                train.AddWaypoint(sixth, finalAngle - 33.75f);
+                train.AddWaypoint(seventh, finalAngle - 22.5f);
+                train.AddWaypoint(penultimate, finalAngle - 15f);
+                train.AddWaypoint(finalPosition, finalAngle);
             }
         }
     }
