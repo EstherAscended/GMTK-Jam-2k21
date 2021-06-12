@@ -121,6 +121,42 @@ public class LevelGrid : Node2D
             }
         }
     }
+    public void LeftToTop(Area2D trainArea)
+    {
+        //GD.Print("enter 4");    
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 4");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToLeft/Area2D").GlobalPosition);
+            }
+        }
+    }
+    public void TopToLeft(Area2D trainArea)
+    {
+        //GD.Print("enter 5");    
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 5");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToTop/Area2D").GlobalPosition);
+            }
+        }
+    }
     public void RightToBottom(Area2D trainArea)
     {
         //GD.Print("enter 6");    
@@ -139,7 +175,45 @@ public class LevelGrid : Node2D
             }
         }
     }
+
     public void BottomToRight(Area2D trainArea)
+    {
+        //GD.Print("enter 7");    
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 5");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition);
+            }
+        }
+    }
+
+    public void RightToTop(Area2D trainArea)
+    {
+        //GD.Print("enter 6");    
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter7/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 4");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToRight/Area2D").GlobalPosition);
+            }
+        }
+    }
+    public void TopToRight(Area2D trainArea)
     {
         //GD.Print("enter 7");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
@@ -153,7 +227,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
             {
                 ResetWaypointAdding(4);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToTop/Area2D").GlobalPosition);
             }
         }
     }
