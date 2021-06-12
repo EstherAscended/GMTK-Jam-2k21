@@ -27,7 +27,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToLeft/Area2D").GlobalPosition, 0);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToLeft/Area2D").GlobalPosition);
             }
         }
     }
@@ -45,7 +45,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToRight/Area2D").GlobalPosition, 180);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToRight/Area2D").GlobalPosition);
             }
         }
     }
@@ -64,7 +64,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToTop/Area2D").GlobalPosition, 90);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToTop/Area2D").GlobalPosition);
             }
         }
     }
@@ -82,7 +82,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToBottom/Area2D").GlobalPosition, 270);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToBottom/Area2D").GlobalPosition);
             }
         }
     }
@@ -102,25 +102,11 @@ public class LevelGrid : Node2D
                 ResetWaypointAdding(waypointDelay);
                 Vector2 initialPosition = GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition;
                 Vector2 finalPosition = GetNode<Area2D>("BottomToLeft/Area2D").GlobalPosition;
-                float finalAngle = 90;
                 Train train = trainArea.GetParent<Train>();
                 
-                // Vector2 second = initialPosition + new Vector2(37, 0);
-                // Vector2 third = initialPosition + new Vector2(54, 1);
-                // Vector2 fourth = initialPosition + new Vector2(68, 7);
-                // Vector2 fifth = initialPosition + new Vector2(82, 18);
-                // Vector2 sixth = initialPosition + new Vector2(92, 31);
-                // Vector2 seventh = initialPosition + new Vector2(98, 145);
-                // Vector2 penultimate = finalPosition + new Vector2(0, -37);
-                //
-                // train.AddWaypoint(second, finalAngle - 78.75f);
-                // train.AddWaypoint(third, finalAngle - 67.5f);
-                // train.AddWaypoint(fourth, finalAngle - 56.25f);
-                // train.AddWaypoint(fifth, finalAngle - 45f);
-                // train.AddWaypoint(sixth, finalAngle - 33.75f);
-                // train.AddWaypoint(seventh, finalAngle - 22.5f);
-                // train.AddWaypoint(penultimate, finalAngle - 15f);
-                train.AddWaypoint(finalPosition, finalAngle);
+                Vector2 midpoint = initialPosition + new Vector2(82, 18);
+                train.AddWaypoint(midpoint);
+                train.AddWaypoint(finalPosition);
             }
         }
     }
@@ -140,7 +126,7 @@ public class LevelGrid : Node2D
             {
                 ResetWaypointAdding(waypointDelay);
                 // Fuck you Russell
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition, 180);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToBottom/Area2D").GlobalPosition);
             }
         }
     }
@@ -159,7 +145,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToLeft/Area2D").GlobalPosition, 270);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToLeft/Area2D").GlobalPosition);
             }
         }
     }
@@ -178,7 +164,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToTop/Area2D").GlobalPosition, 180);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("LeftToTop/Area2D").GlobalPosition);
             }
         }
     }
@@ -197,7 +183,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition, 90);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition);
             }
         }
     }
@@ -217,7 +203,13 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition, 0);
+                Vector2 initialPosition = GetNode<Area2D>("BottomToRight/Area2D").GlobalPosition;
+                Vector2 finalPosition = GetNode<Area2D>("RightToBottom/Area2D").GlobalPosition;
+                Train train = trainArea.GetParent<Train>();
+                
+                Vector2 midpoint = initialPosition + new Vector2(18, -82);
+                train.AddWaypoint(midpoint);
+                train.AddWaypoint(finalPosition);
             }
         }
     }
@@ -237,7 +229,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToRight/Area2D").GlobalPosition, 270);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("TopToRight/Area2D").GlobalPosition);
             }
         }
     }
@@ -256,7 +248,7 @@ public class LevelGrid : Node2D
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
             {
                 ResetWaypointAdding(waypointDelay);
-                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToTop/Area2D").GlobalPosition, 0);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("RightToTop/Area2D").GlobalPosition);
             }
         }
     }
