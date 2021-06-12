@@ -1,0 +1,6 @@
+T: starting position of trains
+R: where resources are picked up
+S: where resources are dropped off
+
+Resources and stations are colour coordinated, e.g. a train needs to go from the red R to the red S to complete a level.
+Coloured trains indicate a train starting the level with a type of resource.
