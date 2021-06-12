@@ -18,7 +18,7 @@ public class LevelGrid : Node2D
     {
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            //GD.Print("enter 0");
+            GD.Print("Left to Right");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -36,7 +36,7 @@ public class LevelGrid : Node2D
     {
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            //GD.Print("enter 1");   
+            GD.Print("Right to Left");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -57,7 +57,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 2");
+            GD.Print("Top to Bottom");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -75,7 +75,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 3");
+            GD.Print("Bottom to Top");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -93,7 +93,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 4");
+            GD.Print("Left to Bottom");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -111,7 +111,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 5");
+            GD.Print("Bottom to Left");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -129,7 +129,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 4");
+            GD.Print("Left to Top");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -147,7 +147,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 5");
+            GD.Print("Top to Left");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -165,7 +165,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 4");
+            GD.Print("Right to Bottom");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -184,7 +184,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 5");
+            GD.Print("Bottom to Right");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -203,7 +203,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 4");
+            GD.Print("Right to Top");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
@@ -221,7 +221,7 @@ public class LevelGrid : Node2D
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
             trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            GD.Print("enter 5");
+            GD.Print("Top to Right");
             lastTouchedArea = this;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
