@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/Train.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
@@ -8,8 +8,11 @@
 [ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/tracks/Junction/Left/TileJunctionLeft2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Switches/SwitchCross.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Switches/SwitchRight.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=9]
+[ext_resource path="res://scripts/Music.cs" type="Script" id=10]
+[ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=11]
+[ext_resource path="res://scenes/Switches/SwitchRight.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Switches/SwitchCross.tscn" type="PackedScene" id=13]
 
 [node name="LevelGrid" type="Node2D"]
 
@@ -21,7 +24,7 @@ junctionArrPosition = 1
 position = Vector2( 1616, 527 )
 junctionArrPosition = 1
 
-[node name="SwitchCross" parent="." instance=ExtResource( 9 )]
+[node name="SwitchCross" parent="." instance=ExtResource( 13 )]
 position = Vector2( 920, 216 )
 
 [node name="TileHorizontal2" parent="." instance=ExtResource( 2 )]
@@ -66,10 +69,22 @@ position = Vector2( 1816, 327 )
 [node name="TileVertical" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1816, 527 )
 
-[node name="SwitchRight" parent="." instance=ExtResource( 10 )]
+[node name="SwitchRight" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1616, 327 )
 
 [node name="Train" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1616, 1032 )
 rotation = -1.5708
 TrainSpeed = 100.0
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="NormalLoop" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 9 )
+
+[node name="NormalLeadIn" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 11 )
+autoplay = true
+
+[connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
