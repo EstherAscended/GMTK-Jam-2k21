@@ -52,22 +52,74 @@ public class LevelGrid : Node2D
     public void OnStraightEnter2(Area2D trainArea)
     {
         //GD.Print("enter 2");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 2");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
+            }
+        }
     }
     public void OnStraightEnter3(Area2D trainArea)
     {
         //GD.Print("enter 3");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 3");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
+            }
+        }
     }
     public void OnStraightEnter4(Area2D trainArea)
     {
         //GD.Print("enter 4");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 4");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
+            }
+        }
     }
     public void OnStraightEnter5(Area2D trainArea)
     {
         //GD.Print("enter 5");    
-        trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
+        //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
+            trainArea.GetParent<Train>().LastTouchedTile != this)
+        {
+            GD.Print("enter 5");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
+            {
+                ResetWaypointAdding(4);
+                trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
+            }
+        }
     }
     public void OnStraightEnter6(Area2D trainArea)
     {

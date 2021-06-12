@@ -11,6 +11,18 @@
 [node name="TileHorizontal2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 368, 296 )
 
+[node name="TileHorizontal7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, 496 )
+
+[node name="TileHorizontal8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, 368 )
+
+[node name="TileHorizontal9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 800, 240 )
+
+[node name="TileHorizontal10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1112, 168 )
+
 [node name="TileHorizontal" parent="." instance=ExtResource( 3 )]
 
 [node name="TileHorizontal3" parent="." instance=ExtResource( 3 )]
@@ -26,11 +38,11 @@ position = Vector2( 544, 112 )
 position = Vector2( 672, 112 )
 
 [node name="TileVertical" parent="." instance=ExtResource( 4 )]
-position = Vector2( 600, 296 )
+position = Vector2( 800, 112 )
 
 [node name="TileJunctionDown2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 368, 472 )
 
 [node name="Train" parent="." instance=ExtResource( 1 )]
-position = Vector2( 736, 112 )
+position = Vector2( 224, 112 )
 TrainSpeed = 100.0
