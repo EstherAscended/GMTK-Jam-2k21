@@ -92,15 +92,11 @@ public class Train : Sprite
 
     private bool IsDistanceSmallEnough(Vector2 a, Vector2 b, float epsilon)
     {
-        Vector2 displacement = (a - b).Abs();
-        return displacement.x < displacementEpsilon && displacement.y < displacementEpsilon;
+        return (b-a).length_squared() < epsilon
     }
 
     private bool AreFloatsCloseEnough(float a, float b, float epsilon)
     {
-        //GD.Print("A: " + a + "| B: " + b);
-        if (a > b) return a - b < epsilon;
-        if (a < b) return b - a < epsilon;
-        return true; // If a < b and a > b are both false, then a == b
+        return Math.abs(b - a) < epsilon;
     }
 }
