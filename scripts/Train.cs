@@ -8,17 +8,22 @@ public class Train : Sprite
 {
     [Export]
     public float TrainSpeed = 1;
-
-    private Queue<Vector2> waypointQueue;
+    
+    [Export] public Vector2 InitialWaypoint;
+    [Export] public Node2D LastTouchedTile;
+    [Export] public Node2D SecondLastTouchedTile;
+    
+    public Queue<Vector2> waypointQueue;
     public Vector2 lastWaypoint;
-    private float displacementEpsilon = 1f;
-    public Node2D LastTouchedTile;
-    public Node2D SecondLastTouchedTile;
     public List<Resources> HeldGoods;
     
+    private float displacementEpsilon = 5f;
+
     public override void _Ready()
     {
         waypointQueue = new Queue<Vector2>();
+        this.AddWaypoint(InitialWaypoint);
+        
         lastWaypoint = this.Position;
         LastTouchedTile = new Node2D();
         SecondLastTouchedTile = new Node2D();
@@ -38,7 +43,7 @@ public class Train : Sprite
         Vector2 nextWaypoint = waypointQueue.Peek();
         Vector2 direction = this.GlobalPosition.DirectionTo(nextWaypoint);
         double angle = Math.Atan2(direction.y, direction.x);
-        this.GlobalRotation = (float) angle;
+        this.GlobalRotation = (float) (angle + Math.PI / 2);
 
         this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
         if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
@@ -69,7 +74,7 @@ public class Train : Sprite
 
     private bool IsDistanceSmallEnough(Vector2 a, Vector2 b, float epsilon)
     {
-        return a.DistanceSquaredTo(b) < epsilon;
+        return a.DistanceTo(b) < epsilon;
     }
 
     private bool AreFloatsCloseEnough(float a, float b, float epsilon)

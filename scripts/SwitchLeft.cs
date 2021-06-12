@@ -36,6 +36,7 @@ public class SwitchLeft : Node2D
             currentTrack.QueueFree();
             currentTrack = pathsToJunctions[junctionArrPosition].Instance<LevelGrid>();
             activeTrack.AddChild(currentTrack);
+            GetNode<RailCreakSFX>("../RailCreakSFX").Play();
         }
     }
 }
