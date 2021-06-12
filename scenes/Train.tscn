@@ -4,6 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 1.0
 
 [node name="Train" type="Sprite"]
 modulate = Color( 0, 0, 0, 0.454902 )
@@ -13,7 +14,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-TrainSpeed = 10.0
+TrainSpeed = 5.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

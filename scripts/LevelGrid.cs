@@ -3,20 +3,29 @@ using System;
 
 public class LevelGrid : Node2D
 {
+    private bool canAddWaypoint = true;
+    private Node2D lastTouchedArea;
+    private Node2D emptyArea;
     public override void _Ready()
     {
-
+        //This is perhaps a temp solution for dealing with the tile overlap. Could change to check direction
+        emptyArea = new Node2D();
+        lastTouchedArea = emptyArea;
     }
 
     public void OnStraightEnter0(Area2D trainArea)
     {
-        if (trainArea.GetParent().Name == "Train")
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
-            //GD.Print("enter 0");   
-            GD.Print($"Collider: {trainArea.GetParent<Train>().lastWaypoint.x > GlobalPosition.x} - Collided: {GlobalPosition}");
-            GD.Print(trainArea.GetParent<Train>().lastWaypoint.x > GlobalPosition.x);
-            if (trainArea.GetParent<Train>().lastWaypoint.x < GlobalPosition.x)
+            //GD.Print("enter 0");
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            //GD.Print($"Collider: {trainArea.GetParent<Train>().GlobalPosition.x} - Collided: {GlobalPosition.x}");
+            //GD.Print(trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x);
+            if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
             {
+                ResetWaypointAdding(4);
                 trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter1/Area2D").GlobalPosition);
             }
         }
@@ -24,13 +33,17 @@ public class LevelGrid : Node2D
     
     public void OnStraightEnter1(Area2D trainArea)
     {
-        if (trainArea.GetParent().Name == "Train")
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
         {
             //GD.Print("enter 1");   
-            GD.Print($"Collider: {trainArea.GetParent<Train>().lastWaypoint.x > GlobalPosition.x} - Collided: {GlobalPosition}");
-            GD.Print(trainArea.GetParent<Train>().lastWaypoint.x > GlobalPosition.x);
-            if (trainArea.GetParent<Train>().lastWaypoint.x < GlobalPosition.x)
+            lastTouchedArea = this;
+            trainArea.GetParent<Train>().LastTouchedTile = this;
+            GD.Print(this);
+            //GD.Print($"Collider: {trainArea.GetParent<Train>().GlobalPosition.x} - Collided: {GlobalPosition.x}");
+            //GD.Print(trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x);
+            if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
             {
+                ResetWaypointAdding(4);
                 trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter0/Area2D").GlobalPosition);
             }
         }
@@ -65,5 +78,13 @@ public class LevelGrid : Node2D
     {
         //GD.Print("enter 7");    
         trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
+    }
+    
+    //This method exists to attempt and prevent the train from turning around whenever it contacts to waypoints
+    //at once
+    private async void ResetWaypointAdding(float time)
+    {
+        await ToSignal(GetTree().CreateTimer(time), "timeout");
+        lastTouchedArea = emptyArea;
     }
 }

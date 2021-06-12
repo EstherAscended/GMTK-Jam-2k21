@@ -12,11 +12,13 @@ public class Train : Sprite
     private Queue<Vector2> waypointQueue;
     public Vector2 lastWaypoint;
     private float displacementEpsilon = 1f;
+    public Node2D LastTouchedTile;
     
     public override void _Ready()
     {
         waypointQueue = new Queue<Vector2>();
         lastWaypoint = this.Position;
+        LastTouchedTile = new Node2D();
     }
 
     public override void _Process(float delta)
@@ -42,7 +44,7 @@ public class Train : Sprite
        waypointQueue.Enqueue(newPosition);
        foreach (var waypoint in waypointQueue)
        {
-            //GD.Print(waypoint);    
+            GD.Print(waypoint);    
        }
     }
 

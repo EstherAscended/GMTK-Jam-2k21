@@ -32,14 +32,5 @@ position = Vector2( 600, 296 )
 position = Vector2( 368, 472 )
 
 [node name="Train" parent="." instance=ExtResource( 1 )]
-position = Vector2( 232, 112 )
-
-[node name="Train2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 368, 232 )
-rotation = 1.5708
-
-[node name="Train3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 528, 296 )
-
-[node name="Train4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 368, 536 )
+position = Vector2( 736, 112 )
+TrainSpeed = 100.0
