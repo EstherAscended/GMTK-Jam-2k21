@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://assets/art/button_help.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/art/button_credits.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/button_play.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/button_level_select.png" type="Texture" id=6]
+[ext_resource path="res://assets/sfx/intro.ogg" type="AudioStream" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Rail Tileset Block Thing.png 0"
@@ -179,5 +180,9 @@ cell_size = Vector2( 200, 200 )
 cell_quadrant_size = 10
 format = 1
 tile_data = PoolIntArray( 65541, 6, 0, 65542, 6, 0, 65543, 6, 0, 65544, 6, 0, 65545, 6, 0, 65546, 6, 0, 65547, 6, 0, 65548, 6, 0, 65549, 6, 0, 65550, 2, 0, 131077, 3, 0, 131079, 3, 0, 131081, 3, 0, 131083, 3, 0, 131085, 5, 0, 131086, 2, 0, 196612, 5, 0, 196613, 4, 0, 196615, 7, 0, 196617, 7, 0, 196619, 7, 0, 196621, 5, 0, 196622, 4, 0 )
+
+[node name="Exposition" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
 
 [connection signal="button_up" from="PlayButton" to="." method="onPlayButtonUp"]
