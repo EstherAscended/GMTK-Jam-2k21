@@ -6,7 +6,6 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="TileJunctionDown0" type="Sprite"]
-position = Vector2( 128, 296 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
