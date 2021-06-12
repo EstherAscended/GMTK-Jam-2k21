@@ -45,10 +45,10 @@ public class Station : Sprite
         }
     }
 
-    public void StationEntered()
+    public void StationEntered(Area2D trainArea)
     {
         GD.Print("station entered");
-        if (!HasGivenResource)
+        if (!HasGivenResource && trainArea.GetParent().Name.Contains("Train"))
         {
             GD.Print("station given resource");
             HasGivenResource = true;

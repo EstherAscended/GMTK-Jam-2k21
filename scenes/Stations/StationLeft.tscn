@@ -5,9 +5,10 @@
 [ext_resource path="res://assets/art/resources/Alcohol.PNG" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 82.5007, 64 )
+extents = Vector2( 83.3321, 64 )
 
-[node name="StationBottom" type="Sprite"]
+[node name="StationLeft" type="Sprite"]
+rotation = 1.5708
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 AvailableResource = 3
@@ -21,7 +22,7 @@ texture = ExtResource( 3 )
 position = Vector2( 0, 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-position = Vector2( 16, 138 )
+position = Vector2( 16, 141.498 )
 shape = SubResource( 1 )
 
 [connection signal="area_entered" from="PickupArea" to="." method="StationEntered"]
