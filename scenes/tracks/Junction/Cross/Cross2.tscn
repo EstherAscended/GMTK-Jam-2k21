@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/art/rail_cross.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/Rail Crossroad block 1.PNG" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelGrid.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Cross0" type="Sprite"]
-position = Vector2( 128, 296 )
+rotation = 1.5708
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TopToBottom" type="Node2D" parent="."]
-position = Vector2( 0, -64 )
+position = Vector2( -96, 7.62939e-06 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -22,7 +22,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="BottomToTop" type="Node2D" parent="."]
-position = Vector2( 0, 64 )
+position = Vector2( 96, -7.62939e-06 )
 __meta__ = {
 "_edit_group_": true
 }
