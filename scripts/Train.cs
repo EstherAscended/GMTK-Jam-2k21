@@ -13,12 +13,14 @@ public class Train : Sprite
     public Vector2 lastWaypoint;
     private float displacementEpsilon = 1f;
     public Node2D LastTouchedTile;
+    public Node2D SecondLastTouchedTile;
     
     public override void _Ready()
     {
         waypointQueueWithEndAngle = new Queue<Tuple<Vector2, float>>();
         lastWaypoint = this.Position;
         LastTouchedTile = new Node2D();
+        SecondLastTouchedTile = new Node2D();
     }
 
     public override void _Process(float delta)

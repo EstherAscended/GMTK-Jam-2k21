@@ -16,7 +16,7 @@ public class LevelGrid : Node2D
 
     public void LeftToRight(Area2D trainArea)
     {
-        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Left to Right");
             lastTouchedArea = this;
@@ -34,7 +34,7 @@ public class LevelGrid : Node2D
     
     public void RightToLeft(Area2D trainArea)
     {
-        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this)
+        if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this && trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Right to Left");
             lastTouchedArea = this;
@@ -55,7 +55,7 @@ public class LevelGrid : Node2D
         //GD.Print("enter 2");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter3/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Top to Bottom");
             lastTouchedArea = this;
@@ -73,7 +73,7 @@ public class LevelGrid : Node2D
         //GD.Print("enter 3");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter2/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Bottom to Top");
             lastTouchedArea = this;
@@ -91,7 +91,7 @@ public class LevelGrid : Node2D
         //GD.Print("enter 4");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Left to Bottom");
             lastTouchedArea = this;
@@ -129,10 +129,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 5");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Bottom to Left");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
@@ -148,10 +149,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 4");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter5/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Left to Top");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.x < GlobalPosition.x)
@@ -166,10 +168,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 5");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter4/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Top to Left");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)
@@ -184,10 +187,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 6");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter7/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Right to Bottom");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
@@ -203,10 +207,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 7");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Bottom to Right");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.y > GlobalPosition.y)
@@ -222,10 +227,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 6");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter7/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this)
         {
             GD.Print("Right to Top");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.x > GlobalPosition.x)
@@ -240,10 +246,11 @@ public class LevelGrid : Node2D
         //GD.Print("enter 7");    
         //trainArea.GetParent<Train>().AddWaypoint(GetNode<Area2D>("Enter6/Area2D").GlobalPosition);
         if (trainArea.GetParent().Name == "Train" && lastTouchedArea != this &&
-            trainArea.GetParent<Train>().LastTouchedTile != this)
+            trainArea.GetParent<Train>().LastTouchedTile != this && trainArea.GetParent<Train>().SecondLastTouchedTile != this) 
         {
             GD.Print("Top to Right");
             lastTouchedArea = this;
+            trainArea.GetParent<Train>().SecondLastTouchedTile = trainArea.GetParent<Train>().LastTouchedTile;
             trainArea.GetParent<Train>().LastTouchedTile = this;
             GD.Print(this);
             if (trainArea.GetParent<Train>().GlobalPosition.y < GlobalPosition.y)

@@ -62,4 +62,4 @@ position = Vector2( 400, 736 )
 [node name="Train" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1616, 1032 )
 rotation = -1.5708
-TrainSpeed = 80.0
+TrainSpeed = 30.0
