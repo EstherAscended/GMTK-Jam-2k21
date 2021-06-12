@@ -32,7 +32,7 @@ public class DropOffBottom : Sprite
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Gold.PNG");
                 break;
             case Resources.Mail:
-                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Oil.PNG");
+                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Mail.PNG");
                 break;
             case Resources.Oil:
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Oil.PNG");
@@ -52,10 +52,11 @@ public class DropOffBottom : Sprite
         {
             if (trainArea.GetParent<Train>().HeldGoods.Contains(WantedResource))
             {
-                GD.Print("station given resource");
+                GD.Print(WantedResource.ToString(), " dropped off.");
                 HasReceivedResource = true;
                 trainArea.GetParent<Train>().HeldGoods.Remove(WantedResource);
                 resourceSprite.Texture = new ImageTexture();
+                GetNode<SFX>("../DropOffSFX").Play();
             }
         }
     }
