@@ -94,6 +94,7 @@ position = Vector2( 1616, 327 )
 position = Vector2( 1616, 1032 )
 rotation = -1.5708
 TrainSpeed = 100.0
+InitialWaypoint = Vector2( 1616, 1000 )
 
 [node name="Music" type="Node" parent="."]
 script = ExtResource( 10 )

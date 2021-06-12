@@ -45,3 +45,4 @@ shape = SubResource( 1 )
 
 [connection signal="area_entered" from="RightToLeft/Area2D" to="." method="RIghtToLeft"]
 [connection signal="area_entered" from="LeftToRight/Area2D" to="." method="LeftToRight"]
+[connection signal="area_entered" from="Crash/Area2D" to="." method="OnCrash"]
