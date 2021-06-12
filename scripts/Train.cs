@@ -10,8 +10,8 @@ public class Train : Sprite
     public float TrainSpeed = 1;
 
     private Queue<Vector2> waypointQueue;
-    private Vector2 lastWaypoint;
-    private float displacementEpsilon = 0.1f;
+    public Vector2 lastWaypoint;
+    private float displacementEpsilon = 1f;
     
     public override void _Ready()
     {
@@ -42,7 +42,7 @@ public class Train : Sprite
        waypointQueue.Enqueue(newPosition);
        foreach (var waypoint in waypointQueue)
        {
-            GD.Print(waypoint);    
+            //GD.Print(waypoint);    
        }
     }
 
