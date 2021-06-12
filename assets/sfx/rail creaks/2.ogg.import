@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2.ogg-c895b6953466992199ef7ae436d61619.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/rail creaks/2.ogg"
+dest_files=[ "res://.import/2.ogg-c895b6953466992199ef7ae436d61619.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

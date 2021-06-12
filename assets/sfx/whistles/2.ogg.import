@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2.ogg-49780479cfab874827b8445e3a153297.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/whistles/2.ogg"
+dest_files=[ "res://.import/2.ogg-49780479cfab874827b8445e3a153297.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
