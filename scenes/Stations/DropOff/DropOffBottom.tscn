@@ -1,17 +1,16 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/art/Station.PNG" type="Texture" id=1]
-[ext_resource path="res://scripts/Station.cs" type="Script" id=2]
+[ext_resource path="res://scripts/DropOffBottom.cs" type="Script" id=2]
 [ext_resource path="res://assets/art/resources/Alcohol.PNG" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 83.3321, 64 )
+extents = Vector2( 82.5007, 64 )
 
-[node name="StationLeft" type="Sprite"]
-rotation = 1.5708
+[node name="DropOffBottom" type="Sprite"]
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-AvailableResource = 3
+WantedResource = 6
 
 [node name="ResourceSprite" type="Sprite" parent="."]
 position = Vector2( -112, -40 )
@@ -22,7 +21,7 @@ texture = ExtResource( 3 )
 position = Vector2( 0, 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
-position = Vector2( 16, 141.498 )
+position = Vector2( 16, 138 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="PickupArea" to="." method="StationEntered"]
+[connection signal="area_entered" from="PickupArea" to="." method="DropOffEntered"]

@@ -14,6 +14,7 @@ public class Train : Sprite
     private float displacementEpsilon = 1f;
     public Node2D LastTouchedTile;
     public Node2D SecondLastTouchedTile;
+    public List<Resources> HeldGoods;
     
     public override void _Ready()
     {
@@ -21,6 +22,7 @@ public class Train : Sprite
         lastWaypoint = this.Position;
         LastTouchedTile = new Node2D();
         SecondLastTouchedTile = new Node2D();
+        HeldGoods = new List<Resources>();
     }
 
     public override void _Process(float delta)

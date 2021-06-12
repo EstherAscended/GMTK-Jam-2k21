@@ -1,16 +1,17 @@
 using Godot;
 using System;
 
-public class Station : Sprite
+public class DropOffBottom : Sprite
 {
-    public bool HasGivenResource = false;
-    [Export] public Resources AvailableResource = Resources.Alcohol;
+    public bool HasReceivedResource = false;
+    [Export] public Resources WantedResource = Resources.Alcohol;
     private string imgPath = "res://assets/art/resources/";
     private Sprite resourceSprite; 
+    
     public override void _Ready()
     {
         resourceSprite = GetNode<Sprite>("ResourceSprite");
-        switch (AvailableResource)
+        switch (WantedResource)
         {
             case Resources.Alcohol:
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Alcohol.PNG");
@@ -45,15 +46,17 @@ public class Station : Sprite
         }
     }
 
-    public void StationEntered(Area2D trainArea)
+    public void DropOffEntered(Area2D trainArea)
     {
-        GD.Print("station entered");
-        if (!HasGivenResource && trainArea.GetParent().Name.Contains("Train"))
+        if (!HasReceivedResource && trainArea.GetParent().Name.Contains("Train"))
         {
-            GD.Print("station given resource");
-            trainArea.GetParent<Train>().HeldGoods.Add(AvailableResource);
-            HasGivenResource = true;
-            resourceSprite.Texture = new ImageTexture();
+            if (trainArea.GetParent<Train>().HeldGoods.Contains(WantedResource))
+            {
+                GD.Print("station given resource");
+                HasReceivedResource = true;
+                trainArea.GetParent<Train>().HeldGoods.Remove(WantedResource);
+                resourceSprite.Texture = new ImageTexture();
+            }
         }
     }
 }

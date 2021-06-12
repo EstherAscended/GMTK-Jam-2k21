@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/Train.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=11]
 [ext_resource path="res://scenes/Switches/SwitchRight.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Switches/SwitchCross.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Stations/StationBottom.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/Stations/StationRight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Stations/Pickup/StationBottom.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Stations/Pickup/StationRight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Stations/DropOff/DropOffBottom.tscn" type="PackedScene" id=16]
 
 [node name="LevelGrid" type="Node2D"]
 
@@ -27,7 +28,7 @@ position = Vector2( 1616, 527 )
 junctionArrPosition = 1
 
 [node name="SwitchCross" parent="." instance=ExtResource( 13 )]
-position = Vector2( 920, 216 )
+position = Vector2( 1904, 88 )
 
 [node name="TileHorizontal2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 824, 728 )
@@ -75,8 +76,12 @@ position = Vector2( 1816, 527 )
 position = Vector2( 640, 832 )
 AvailableResource = 6
 
+[node name="DropOffBottom" parent="." instance=ExtResource( 16 )]
+position = Vector2( 916, 344 )
+WantedResource = 3
+
 [node name="StationBottom" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1240, 336 )
+position = Vector2( 1288, 336 )
 
 [node name="SwitchRight" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1616, 327 )
