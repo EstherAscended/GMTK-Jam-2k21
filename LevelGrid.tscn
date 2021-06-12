@@ -4,12 +4,16 @@
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tracks/Straight/TileHorizontal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tracks/Junction/Down/TileJunctionDown1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/tracks/Junction/Down/TileJunctionDown2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Switches/SwitchDown.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/tracks/Junction/Left/TileJunctionLeft2.tscn" type="PackedScene" id=8]
 
 [node name="LevelGrid" type="Node2D"]
+
+[node name="SwitchDown" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, 112 )
+junctionArrPosition = 1
 
 [node name="TileHorizontal2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160, 240 )
@@ -40,9 +44,6 @@ position = Vector2( 672, 112 )
 
 [node name="TileVertical" parent="." instance=ExtResource( 4 )]
 position = Vector2( 800, 112 )
-
-[node name="TileJunctionDown2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 160, 112 )
 
 [node name="TileJunctionUp1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 160, 368 )
