@@ -48,11 +48,13 @@ public class Station : Sprite
     public void StationEntered(Area2D trainArea)
     {
         GD.Print("station entered");
-        if (!HasGivenResource && trainArea.GetParent().Name.Contains("Train"))
+        if (trainArea.Name != "WaypointCollider" || HasGivenResource) return;
+        
+        HasGivenResource = trainArea.GetParent<Carriage>().AddCarriage(AvailableResource);
+        if (HasGivenResource)
         {
             GD.Print("I'm so full of ", AvailableResource.ToString(), " yum!");
-            trainArea.GetParent<Train>().HeldGoods.Add(AvailableResource);
-            HasGivenResource = true;
+        
             resourceSprite.Texture = new ImageTexture();
             GetNode<SFX>("../PickUpSFX").Play();
         }

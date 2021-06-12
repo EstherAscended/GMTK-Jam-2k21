@@ -48,16 +48,18 @@ public class DropOffBottom : Sprite
 
     public void DropOffEntered(Area2D trainArea)
     {
-        if (!HasReceivedResource && trainArea.GetParent().Name.Contains("Train"))
-        {
-            if (trainArea.GetParent<Train>().HeldGoods.Contains(WantedResource))
-            {
-                GD.Print(WantedResource.ToString(), " dropped off.");
-                HasReceivedResource = true;
-                trainArea.GetParent<Train>().HeldGoods.Remove(WantedResource);
-                resourceSprite.Texture = new ImageTexture();
-                GetNode<SFX>("../DropOffSFX").Play();
-            }
-        }
+        if (trainArea.Name != "WaypointCollider" || HasReceivedResource
+            || trainArea.GetParent<Carriage>().PulledBy != null) return;
+
+        Carriage trainEngine = trainArea.GetParent<Carriage>();
+        Carriage carriageWithResource = trainEngine.getNextCarriageWithResource(WantedResource);
+        
+        if (carriageWithResource == null) return;
+        carriageWithResource.RemoveCarriage();
+        GD.Print(WantedResource.ToString(), " dropped off.");
+        HasReceivedResource = true;
+        resourceSprite.Texture = new ImageTexture();
+        GetNode<SFX>("../DropOffSFX").Play();
+
     }
 }

@@ -1,13 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://scenes/Train.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/TrainEngine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tracks/Straight/TileHorizontal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Switches/SwitchLeft.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Switches/SwitchDown.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/tracks/Junction/Up/TileJunctionUp2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/tracks/Junction/Left/TileJunctionLeft2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=9]
 [ext_resource path="res://scripts/Music.cs" type="Script" id=10]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=11]
@@ -25,6 +22,9 @@
 [ext_resource path="res://assets/sfx/whistles/6.ogg" type="AudioStream" id=23]
 
 [node name="LevelGrid" type="Node2D"]
+__meta__ = {
+"_edit_vertical_guides_": [ 728.0, 1720.0 ]
+}
 
 [node name="SwitchDown" parent="." instance=ExtResource( 5 )]
 position = Vector2( 824, 528 )
@@ -49,11 +49,8 @@ position = Vector2( 1616, 728 )
 [node name="TileHorizontal9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 824, 912 )
 
-[node name="TileHorizontal" parent="." instance=ExtResource( 3 )]
-position = Vector2( 288, 368 )
-
 [node name="TileHorizontal3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 480, 104 )
+position = Vector2( 624, 528 )
 
 [node name="TileHorizontal4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1016, 528 )
@@ -63,15 +60,6 @@ position = Vector2( 1216, 528 )
 
 [node name="TileHorizontal6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1416, 528 )
-
-[node name="TileJunctionUp1" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, 368 )
-
-[node name="TileJunctionUp2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 416, 496 )
-
-[node name="TileJunctionLeft2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 400, 736 )
 
 [node name="SwitchDown2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1816, 327 )
@@ -83,21 +71,8 @@ position = Vector2( 1816, 527 )
 position = Vector2( 640, 832 )
 AvailableResource = 6
 
-[node name="DropOffBottom" parent="." instance=ExtResource( 19 )]
-position = Vector2( 916, 344 )
-WantedResource = 3
-
-[node name="StationBottom" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1288, 336 )
-
 [node name="SwitchRight" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1616, 327 )
-
-[node name="Train" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1616, 1032 )
-rotation = -1.5708
-TrainSpeed = 100.0
-InitialWaypoint = Vector2( 1616, 1000 )
 
 [node name="Music" type="Node" parent="."]
 script = ExtResource( 10 )
@@ -135,5 +110,28 @@ stream = ExtResource( 15 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DropOffSFX"]
 stream = ExtResource( 23 )
+
+[node name="TileHorizontal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 424, 528 )
+
+[node name="TileHorizontal10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224, 528 )
+
+[node name="StationBottom2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 984, 336 )
+AvailableResource = 6
+
+[node name="StationBottom" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1288, 336 )
+
+[node name="DropOffBottom" parent="." instance=ExtResource( 19 )]
+position = Vector2( 376, 344 )
+WantedResource = 3
+
+[node name="TrainEngine" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1816, 328 )
+rotation = 4.71239
+TrainSpeed = 100.0
+InitialWaypoint = Vector2( 1720, 328 )
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
