@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/tracks/Junction/Down/TileJunctionDown0.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/art/uiassets/Signal_G0.PNG" type="Texture" id=2]
 [ext_resource path="res://scripts/SwitchDown.cs" type="Script" id=3]
 [ext_resource path="res://assets/art/uiassets/Signal_G1.PNG" type="Texture" id=4]
-[ext_resource path="res://assets/art/uiassets/Signal_R0.PNG" type="Texture" id=5]
 [ext_resource path="res://assets/art/uiassets/Signal_R1.PNG" type="Texture" id=6]
 [ext_resource path="res://scenes/Switches/SignalLight.cs" type="Script" id=7]
 
@@ -13,12 +11,12 @@ extents = Vector2( 64, 64 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Inactive",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Active",
 "speed": 1.0
@@ -39,8 +37,6 @@ shape = SubResource( 1 )
 [node name="SignalLight" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Active"
-frame = 1
-playing = true
 script = ExtResource( 7 )
 
 [connection signal="area_entered" from="MouseArea" to="." method="OnEnter"]
