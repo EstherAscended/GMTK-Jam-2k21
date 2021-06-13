@@ -244,9 +244,6 @@ position = Vector2( 4328, -400 )
 
 [node name="LevelCompletePopup" parent="." instance=ExtResource( 36 )]
 
-[node name="Emergency Background" parent="LevelCompletePopup" instance=ExtResource( 37 )]
-position = Vector2( 1409.26, 802.02 )
-
 [node name="CrashSFX" type="Node" parent="."]
 script = ExtResource( 6 )
 
