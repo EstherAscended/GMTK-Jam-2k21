@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class LevelManager : Control
+public class LevelManager : Popup
 {
     public override void _Ready()
     {
