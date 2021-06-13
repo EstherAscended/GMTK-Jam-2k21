@@ -57,7 +57,7 @@ public static class ResourcesMethods
             case Resources.Dynamite:
                 return "Dynamite.PNG";
             case Resources.Gems:
-                return "Gems.PNG";
+                return "Gem.PNG";
             case Resources.Gold:
                 return "Gold.PNG";
             case Resources.Mail:
