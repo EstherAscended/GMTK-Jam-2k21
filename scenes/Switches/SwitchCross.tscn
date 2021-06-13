@@ -18,4 +18,6 @@ shape = SubResource( 1 )
 
 [node name="Cross1" parent="ActiveTrack" instance=ExtResource( 1 )]
 
+[connection signal="area_entered" from="MouseArea" to="." method="OnEnter"]
+[connection signal="area_exited" from="MouseArea" to="." method="OnExit"]
 [connection signal="input_event" from="MouseArea" to="." method="OnSwitchClick"]

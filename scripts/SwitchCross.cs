@@ -10,6 +10,7 @@ public class SwitchCross : Node2D
     private LevelGrid currentTrack;
     [Export] private int junctionArrPosition = 0;
     private Node2D activeTrack;
+    private bool canSwitch = true;
     
     public override void _Ready()
     {
@@ -23,7 +24,7 @@ public class SwitchCross : Node2D
 
     public void OnSwitchClick(Node viewport, InputEvent @event, int shapeIdx)
     {
-        if (Input.IsActionJustPressed("click"))
+        if (Input.IsActionJustPressed("click") && canSwitch)
         {
             if (junctionArrPosition + 1 < pathsToJunctions.Length)
             {
@@ -37,5 +38,18 @@ public class SwitchCross : Node2D
             activeTrack.AddChild(currentTrack);
             GetNode<SFX>("../RailCreakSFX").Play();
         }
+    }
+
+    public void OnEnter(Area2D trainArea)
+    {
+        if (trainArea.Name != "WaypointCollider") return;
+        canSwitch = false;
+
+    }
+
+    public void OnExit(Area2D trainArea)
+    {
+        if (trainArea.Name != "WaypointCollider") return;
+        if (trainArea.GetParent<Carriage>().Pulling == null) canSwitch = true;
     }
 }
