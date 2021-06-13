@@ -22,7 +22,7 @@ public class DropOff : Sprite
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Alcohol.PNG");
                 break;
             case Resources.Apples:
-                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Apples.PNG");
+                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Apple.PNG");
                 break;
             case Resources.Coal:
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Coal.PNG");
@@ -31,7 +31,7 @@ public class DropOff : Sprite
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Dynamite.PNG");
                 break;
             case Resources.Gems:
-                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Gems.PNG");
+                resourceSprite.Texture = GD.Load<Texture>(imgPath + "Gem.PNG");
                 break;
             case Resources.Gold:
                 resourceSprite.Texture = GD.Load<Texture>(imgPath + "Gold.PNG");
