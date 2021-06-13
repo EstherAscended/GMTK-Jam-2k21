@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://scenes/TrainCatcherVertical.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/TrainCatcherHorizontal.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/EmergencyBackground.tscn" type="PackedScene" id=29]
+[ext_resource path="res://assets/sfx/tutorial.ogg" type="AudioStream" id=30]
 [ext_resource path="res://assets/sfx/crashes/2.ogg" type="AudioStream" id=33]
 [ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=34]
 [ext_resource path="res://assets/sfx/crashes/3.ogg" type="AudioStream" id=35]
@@ -216,6 +217,9 @@ stream = ExtResource( 36 )
 [node name="LevelCompletePopup" parent="." instance=ExtResource( 25 )]
 
 [node name="TutorialPopup" parent="." instance=ExtResource( 26 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TutorialPopup"]
+stream = ExtResource( 30 )
 
 [node name="OilSFX" type="Node" parent="."]
 script = ExtResource( 6 )
