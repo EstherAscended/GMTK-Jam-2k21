@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Carriage Gold Gem Dynamite.PNG-7e744a95c093dc5af99caeee68bd8f79.stex"
+path="res://.import/Oil_Pointer.PNG-a6b7cd30ae033083d10b298d69df2afa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Carriage Gold Gem Dynamite.PNG"
-dest_files=[ "res://.import/Carriage Gold Gem Dynamite.PNG-7e744a95c093dc5af99caeee68bd8f79.stex" ]
+source_file="res://assets/art/resource_pointers/Oil_Pointer.PNG"
+dest_files=[ "res://.import/Oil_Pointer.PNG-a6b7cd30ae033083d10b298d69df2afa.stex" ]
 
 [params]
 

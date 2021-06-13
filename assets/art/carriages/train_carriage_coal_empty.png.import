@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_help.png-35cbbef23dfcc886177486a9caa27663.stex"
+path="res://.import/train_carriage_coal_empty.png-c7dd3b40cbe56c1b194e3782f7855979.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/button_help.png"
-dest_files=[ "res://.import/button_help.png-35cbbef23dfcc886177486a9caa27663.stex" ]
+source_file="res://assets/art/carriages/train_carriage_coal_empty.png"
+dest_files=[ "res://.import/train_carriage_coal_empty.png-c7dd3b40cbe56c1b194e3782f7855979.stex" ]
 
 [params]
 

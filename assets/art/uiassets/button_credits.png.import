@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Wood Carriage.PNG-07d5a0191538b48b351db1265c9b060e.stex"
+path="res://.import/button_credits.png-dbd0f9b3fe3cf7d45bac7af6ed9494df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Wood Carriage.PNG"
-dest_files=[ "res://.import/Wood Carriage.PNG-07d5a0191538b48b351db1265c9b060e.stex" ]
+source_file="res://assets/art/uiassets/button_credits.png"
+dest_files=[ "res://.import/button_credits.png-dbd0f9b3fe3cf7d45bac7af6ed9494df.stex" ]
 
 [params]
 

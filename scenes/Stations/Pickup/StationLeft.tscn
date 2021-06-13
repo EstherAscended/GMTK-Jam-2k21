@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Station.cs" type="Script" id=1]
 [ext_resource path="res://assets/art/resources/Alcohol.PNG" type="Texture" id=2]
-[ext_resource path="res://assets/art/Station.PNG" type="Texture" id=3]
+[ext_resource path="res://assets/art/stations/Station.PNG" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 83.3321, 64 )

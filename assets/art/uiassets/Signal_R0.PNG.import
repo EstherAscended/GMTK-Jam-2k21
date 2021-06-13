@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Station.PNG-18e5388bedacdd68a91125883ac683a1.stex"
+path="res://.import/Signal_R0.PNG-92e52e6999ef6abf078a3949a08d2c18.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Station.PNG"
-dest_files=[ "res://.import/Station.PNG-18e5388bedacdd68a91125883ac683a1.stex" ]
+source_file="res://assets/art/uiassets/Signal_R0.PNG"
+dest_files=[ "res://.import/Signal_R0.PNG-92e52e6999ef6abf078a3949a08d2c18.stex" ]
 
 [params]
 

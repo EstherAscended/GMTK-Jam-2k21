@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Apple and Mail Carriage.PNG-4f58b770387ef76fa6580012185d0192.stex"
+path="res://.import/Fast_Y.PNG-1668b9b57dc1d248862e0cafe31d9b29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Apple and Mail Carriage.PNG"
-dest_files=[ "res://.import/Apple and Mail Carriage.PNG-4f58b770387ef76fa6580012185d0192.stex" ]
+source_file="res://assets/art/trains/Fast_Y.PNG"
+dest_files=[ "res://.import/Fast_Y.PNG-1668b9b57dc1d248862e0cafe31d9b29.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/art/Rail Crossroad block 2.PNG" type="Texture" id=1]
+[ext_resource path="res://assets/art/rails/Rail Crossroad block 2.PNG" type="Texture" id=1]
 [ext_resource path="res://scripts/LevelGrid.cs" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]

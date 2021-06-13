@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Coal Carriage.PNG-6143d58863f04be21de1816b1f246ec6.stex"
+path="res://.import/Apple and Mail Carriage.PNG-b06997b45c449dfa3b474a373704f419.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Coal Carriage.PNG"
-dest_files=[ "res://.import/Coal Carriage.PNG-6143d58863f04be21de1816b1f246ec6.stex" ]
+source_file="res://assets/art/carriages/Apple and Mail Carriage.PNG"
+dest_files=[ "res://.import/Apple and Mail Carriage.PNG-b06997b45c449dfa3b474a373704f419.stex" ]
 
 [params]
 

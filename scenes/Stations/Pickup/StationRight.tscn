@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/art/Station.PNG" type="Texture" id=1]
+[ext_resource path="res://assets/art/stations/Station.PNG" type="Texture" id=1]
 [ext_resource path="res://scripts/Station.cs" type="Script" id=2]
 [ext_resource path="res://assets/art/resources/Alcohol.PNG" type="Texture" id=3]
 

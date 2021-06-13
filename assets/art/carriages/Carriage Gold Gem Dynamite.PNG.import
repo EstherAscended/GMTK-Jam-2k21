@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Carriage Oli and Alcohol.PNG-967eff1f1037411719532dcfb8e6d520.stex"
+path="res://.import/Carriage Gold Gem Dynamite.PNG-eecd60bd238cb99731511fa4f1838402.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Carriage Oli and Alcohol.PNG"
-dest_files=[ "res://.import/Carriage Oli and Alcohol.PNG-967eff1f1037411719532dcfb8e6d520.stex" ]
+source_file="res://assets/art/carriages/Carriage Gold Gem Dynamite.PNG"
+dest_files=[ "res://.import/Carriage Gold Gem Dynamite.PNG-eecd60bd238cb99731511fa4f1838402.stex" ]
 
 [params]
 
