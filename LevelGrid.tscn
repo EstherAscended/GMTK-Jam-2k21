@@ -166,5 +166,3 @@ stream = ExtResource( 27 )
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="CrashSFX"]
 stream = ExtResource( 26 )
-
-[connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
