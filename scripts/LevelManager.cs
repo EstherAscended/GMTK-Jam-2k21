@@ -15,8 +15,8 @@ public class LevelManager : Popup
     private string[] levelPaths;
     public override void _Ready()
     {
-        path1 = levelPathStart + "Level1.tscn";
-        path2 = levelPathStart + "Level2.tscn";
+        path1 = levelPathStart + "Tutorial1.tscn";
+        path2 = levelPathStart + "Tutorial2.tscn";
         path3 = levelPathStart + "Level3.tscn";
         path4 = levelPathStart + "Level4.tscn";
         path5 = levelPathStart + "Level5.tscn";

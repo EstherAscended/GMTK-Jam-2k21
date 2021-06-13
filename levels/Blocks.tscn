@@ -1,0 +1,236 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sfx/rail creaks/1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://assets/sfx/rail creaks/2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/rail creaks/3.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scripts/SFX.cs" type="Script" id=6]
+[ext_resource path="res://scripts/Music.cs" type="Script" id=7]
+[ext_resource path="res://ZoomingCamera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/GameManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/tracks/Curve/TileBottomToRight.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/tracks/Curve/TileTopToLeft.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Switches/SwitchCross.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/tracks/Straight/TileHorizontal.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/tracks/Curve/TileTopToRight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Switches/SwitchDown.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/Stations/Pickup/StationBottom.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/tracks/Curve/TileBottomToLeft.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/sfx/whistles/1.ogg" type="AudioStream" id=19]
+[ext_resource path="res://assets/sfx/loading/1.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/sfx/whistles/6.ogg" type="AudioStream" id=21]
+[ext_resource path="res://scenes/Switches/SwitchRight.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Stations/DropOff/DropOffBottom.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/Switches/SwitchUp.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/trains/TrainNormal_R.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/Switches/SwitchLeft.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/Stations/Pickup/StationRight.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/trains/TrainNormal_B.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/sfx/crashes/2.ogg" type="AudioStream" id=29]
+[ext_resource path="res://assets/sfx/crashes/3.ogg" type="AudioStream" id=30]
+[ext_resource path="res://assets/sfx/crashes/1.ogg" type="AudioStream" id=31]
+[ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=32]
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 698.455 ],
+"_edit_vertical_guides_": [ -88.0, 700.0, 596.0 ]
+}
+
+[node name="ZoomingCamera" parent="." instance=ExtResource( 8 )]
+position = Vector2( 900, 900 )
+zoom = Vector2( 1.25, 1.25 )
+
+[node name="GameManager" parent="." instance=ExtResource( 9 )]
+ResourceInLevel = 3
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="NormalLoop" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 1 )
+
+[node name="NormalLeadIn" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="RailCreakSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="1" type="AudioStreamPlayer" parent="RailCreakSFX"]
+stream = ExtResource( 3 )
+
+[node name="2" type="AudioStreamPlayer" parent="RailCreakSFX"]
+stream = ExtResource( 4 )
+
+[node name="3" type="AudioStreamPlayer" parent="RailCreakSFX"]
+stream = ExtResource( 5 )
+
+[node name="PickUpSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="1" type="AudioStreamPlayer" parent="PickUpSFX"]
+stream = ExtResource( 20 )
+
+[node name="DropOffSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DropOffSFX"]
+stream = ExtResource( 19 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DropOffSFX"]
+stream = ExtResource( 21 )
+
+[node name="CrashSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 31 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 29 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 30 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 32 )
+
+[node name="TileBottomToRight" parent="." instance=ExtResource( 11 )]
+position = Vector2( 300, 300 )
+
+[node name="TileHorizontal" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 300 )
+
+[node name="TileVertical" parent="." instance=ExtResource( 10 )]
+position = Vector2( 300, 500 )
+
+[node name="SwitchDown" parent="." instance=ExtResource( 16 )]
+position = Vector2( 900, 300 )
+
+[node name="SwitchRight" parent="." instance=ExtResource( 22 )]
+position = Vector2( 300, 900 )
+
+[node name="TileVertical2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 900, 500 )
+
+[node name="TileHorizontal2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 700, 300 )
+
+[node name="TileVertical3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 900, 700 )
+
+[node name="TileVertical4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 300, 700 )
+
+[node name="TileHorizontal3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 900 )
+
+[node name="TileHorizontal4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 700, 900 )
+
+[node name="TileVertical5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 300, 1100 )
+
+[node name="TileVertical6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 300, 1300 )
+
+[node name="TileBottomToLeft" parent="." instance=ExtResource( 15 )]
+position = Vector2( 300, 1500 )
+
+[node name="TileHorizontal5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 1500 )
+
+[node name="TileHorizontal6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 700, 1500 )
+
+[node name="SwitchUp" parent="." instance=ExtResource( 24 )]
+position = Vector2( 900, 1500 )
+
+[node name="TileVertical7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 900, 1100 )
+
+[node name="TileVertical8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 900, 1300 )
+
+[node name="TileHorizontal7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1100, 1500 )
+
+[node name="TileHorizontal12" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1300, 1500 )
+
+[node name="TileBottomToLeft2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1500, 1500 )
+
+[node name="TileHorizontal8" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1100, 300 )
+
+[node name="TileHorizontal9" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1300, 300 )
+
+[node name="TileBottomToLeft3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1500, 300 )
+
+[node name="TileVertical9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1500, 500 )
+
+[node name="TileVertical10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1500, 700 )
+
+[node name="TileVertical11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1500, 1300 )
+
+[node name="TileVertical12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1500, 1100 )
+
+[node name="SwitchLeft" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1500, 900 )
+
+[node name="TileHorizontal10" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1100, 900 )
+
+[node name="TileHorizontal11" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1300, 900 )
+
+[node name="StationBottom" parent="." instance=ExtResource( 17 )]
+position = Vector2( 536, 744 )
+
+[node name="StationRight" parent="." instance=ExtResource( 27 )]
+position = Vector2( 120, 544 )
+AvailableResource = 8
+
+[node name="DropOffBottom" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1080, 528 )
+rotation = 1.5708
+WantedResource = 3
+
+[node name="StationBottom2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1128, 712 )
+AvailableResource = 1
+
+[node name="DropOffBottom2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 700, 1248 )
+rotation = 4.71239
+WantedResource = 1
+
+[node name="DropOffBottom3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1688, 1288 )
+rotation = 1.5708
+WantedResource = 8
+
+[node name="SwitchCross" parent="." instance=ExtResource( 13 )]
+position = Vector2( 900, 900 )
+
+[node name="TrainNormal_B" parent="." instance=ExtResource( 28 )]
+position = Vector2( 704, 300 )
+rotation = 1.5708
+InitialWaypoint = Vector2( 800, 300 )
+
+[node name="TrainNormal_R" parent="." instance=ExtResource( 25 )]
+position = Vector2( 488, 1500 )
+rotation = 1.5708
+InitialWaypoint = Vector2( 600, 1500 )
+
+[connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]

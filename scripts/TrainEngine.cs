@@ -18,6 +18,7 @@ public class TrainEngine : Carriage
         if (area.Name != "CrashChecker") return;
         GD.Print("Body collision");
         gameManager.IsGameOver = true;
+        GetNode<SFX>("../CrashSFX").Play();
     }
     
     public override void _Ready()

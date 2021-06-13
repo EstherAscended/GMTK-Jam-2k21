@@ -39,8 +39,8 @@ frames = SubResource( 2 )
 animation = "Active"
 script = ExtResource( 7 )
 
-[connection signal="area_entered" from="MouseArea" to="." method="OnEnter"]
 [connection signal="area_entered" from="MouseArea" to="SignalLight" method="OnEnter"]
-[connection signal="area_exited" from="MouseArea" to="." method="OnExit"]
+[connection signal="area_entered" from="MouseArea" to="." method="OnEnter"]
 [connection signal="area_exited" from="MouseArea" to="SignalLight" method="OnExit"]
+[connection signal="area_exited" from="MouseArea" to="." method="OnExit"]
 [connection signal="input_event" from="MouseArea" to="." method="OnSwitchClick"]
