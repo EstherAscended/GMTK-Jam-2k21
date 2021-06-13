@@ -17,11 +17,9 @@ public class LevelManager : Popup
     {
         path1 = levelPathStart + "Tutorial1.tscn";
         path2 = levelPathStart + "Tutorial2.tscn";
-        path3 = levelPathStart + "Level3.tscn";
-        path4 = levelPathStart + "Level4.tscn";
-        path5 = levelPathStart + "Level5.tscn";
-        path6 = levelPathStart + "Level6.tscn";
-        levelPaths = new[] {path1, path2, path3, path4, path5, path6};
+        path3 = levelPathStart + "Blocks.tscn";
+        path4 = levelPathStart + "TwoCities.tscn";
+        levelPaths = new[] {path1, path2, path3, path4};
     }
 
     public void LoadMainMenu()

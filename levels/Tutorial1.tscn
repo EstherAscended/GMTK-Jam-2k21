@@ -35,7 +35,7 @@
 [ext_resource path="res://assets/sfx/crashes/1.ogg" type="AudioStream" id=36]
 [ext_resource path="res://assets/sfx/loading/oil.ogg" type="AudioStream" id=37]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [ -88.0 ]
 }

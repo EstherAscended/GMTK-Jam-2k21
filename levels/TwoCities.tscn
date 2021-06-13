@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -33,12 +33,17 @@
 [ext_resource path="res://assets/sfx/crashes/1.ogg" type="AudioStream" id=31]
 [ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=32]
 [ext_resource path="res://assets/sfx/loading/oil.ogg" type="AudioStream" id=33]
+[ext_resource path="res://scenes/UI/GameOverPopup.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scenes/UI/LevelCompletePopup.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scenes/EmergencyBackground.tscn" type="PackedScene" id=36]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 698.455 ],
 "_edit_vertical_guides_": [ -88.0, -368.0, -368.0 ]
 }
+
+[node name="Emergency Background" parent="." instance=ExtResource( 36 )]
 
 [node name="ZoomingCamera" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1696, 816 )
@@ -275,5 +280,9 @@ script = ExtResource( 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OilSFX"]
 stream = ExtResource( 33 )
+
+[node name="GameOverPopup" parent="." instance=ExtResource( 34 )]
+
+[node name="LevelCompletePopup" parent="." instance=ExtResource( 35 )]
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]

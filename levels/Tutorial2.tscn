@@ -38,7 +38,7 @@
 [ext_resource path="res://scenes/UI/LevelCompletePopup.tscn" type="PackedScene" id=36]
 [ext_resource path="res://scenes/EmergencyBackground.tscn" type="PackedScene" id=37]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 698.455 ],
 "_edit_vertical_guides_": [ -88.0, 700.0 ]
