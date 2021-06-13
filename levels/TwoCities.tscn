@@ -24,7 +24,7 @@
 [ext_resource path="res://scenes/Switches/SwitchRight.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/Stations/DropOff/DropOffBottom.tscn" type="PackedScene" id=23]
 [ext_resource path="res://scenes/Switches/SwitchUp.tscn" type="PackedScene" id=24]
-[ext_resource path="res://scenes/trains/TrainNormal_R.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/trains/TrainFast_Y.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/Switches/SwitchLeft.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/Stations/Pickup/StationRight.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/trains/TrainNormal_B.tscn" type="PackedScene" id=28]
@@ -37,15 +37,15 @@
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [ 698.455 ],
-"_edit_vertical_guides_": [ -88.0, 700.0, 596.0 ]
+"_edit_vertical_guides_": [ -88.0, -368.0, -368.0 ]
 }
 
 [node name="ZoomingCamera" parent="." instance=ExtResource( 8 )]
-position = Vector2( 900, 900 )
+position = Vector2( 1696, 816 )
 zoom = Vector2( 1.25, 1.25 )
 
 [node name="GameManager" parent="." instance=ExtResource( 9 )]
-ResourceInLevel = 3
+ResourceInLevel = 4
 
 [node name="Music" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -102,137 +102,173 @@ stream = ExtResource( 32 )
 [node name="TileBottomToRight" parent="." instance=ExtResource( 11 )]
 position = Vector2( 300, 300 )
 
-[node name="TileHorizontal" parent="." instance=ExtResource( 14 )]
-position = Vector2( 500, 300 )
-
-[node name="TileVertical" parent="." instance=ExtResource( 10 )]
+[node name="SwitchRight" parent="." instance=ExtResource( 22 )]
 position = Vector2( 300, 500 )
 
-[node name="SwitchDown" parent="." instance=ExtResource( 16 )]
-position = Vector2( 900, 300 )
-
-[node name="SwitchRight" parent="." instance=ExtResource( 22 )]
-position = Vector2( 300, 900 )
-
-[node name="TileVertical2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 900, 500 )
-
-[node name="TileHorizontal2" parent="." instance=ExtResource( 14 )]
+[node name="TileBottomToLeft" parent="." instance=ExtResource( 18 )]
 position = Vector2( 700, 300 )
 
-[node name="TileVertical3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 900, 700 )
+[node name="SwitchCross2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 700, 500 )
 
-[node name="TileVertical4" parent="." instance=ExtResource( 10 )]
+[node name="TileVertical" parent="." instance=ExtResource( 10 )]
 position = Vector2( 300, 700 )
 
-[node name="TileHorizontal3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 500, 900 )
+[node name="TileVertical2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 700, 700 )
 
-[node name="TileHorizontal4" parent="." instance=ExtResource( 14 )]
-position = Vector2( 700, 900 )
-
-[node name="TileVertical5" parent="." instance=ExtResource( 10 )]
-position = Vector2( 300, 1100 )
-
-[node name="TileVertical6" parent="." instance=ExtResource( 10 )]
-position = Vector2( 300, 1300 )
-
-[node name="TileBottomToLeft" parent="." instance=ExtResource( 15 )]
-position = Vector2( 300, 1500 )
-
-[node name="TileHorizontal5" parent="." instance=ExtResource( 14 )]
-position = Vector2( 500, 1500 )
-
-[node name="TileHorizontal6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 700, 1500 )
+[node name="SwitchRight2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 300, 900 )
 
 [node name="SwitchUp" parent="." instance=ExtResource( 24 )]
-position = Vector2( 900, 1500 )
-
-[node name="TileVertical7" parent="." instance=ExtResource( 10 )]
-position = Vector2( 900, 1100 )
-
-[node name="TileVertical8" parent="." instance=ExtResource( 10 )]
-position = Vector2( 900, 1300 )
-
-[node name="TileHorizontal7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1100, 1500 )
-
-[node name="TileHorizontal12" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1300, 1500 )
-
-[node name="TileBottomToLeft2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1500, 1500 )
-
-[node name="TileHorizontal8" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1100, 300 )
-
-[node name="TileHorizontal9" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1300, 300 )
-
-[node name="TileBottomToLeft3" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1500, 300 )
-
-[node name="TileVertical9" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1500, 500 )
-
-[node name="TileVertical10" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1500, 700 )
-
-[node name="TileVertical11" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1500, 1300 )
-
-[node name="TileVertical12" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1500, 1100 )
+position = Vector2( 700, 900 )
 
 [node name="SwitchLeft" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1500, 900 )
-
-[node name="TileHorizontal10" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1100, 900 )
-
-[node name="TileHorizontal11" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1300, 900 )
-
-[node name="StationBottom" parent="." instance=ExtResource( 17 )]
-position = Vector2( 536, 744 )
-
-[node name="StationRight" parent="." instance=ExtResource( 27 )]
-position = Vector2( 120, 544 )
-AvailableResource = 8
-
-[node name="DropOffBottom" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1080, 528 )
-rotation = 1.5708
-WantedResource = 3
-
-[node name="StationBottom2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1128, 712 )
-AvailableResource = 1
-
-[node name="DropOffBottom2" parent="." instance=ExtResource( 23 )]
-position = Vector2( 700, 1248 )
-rotation = 4.71239
-WantedResource = 1
-
-[node name="DropOffBottom3" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1688, 1288 )
-rotation = 1.5708
-WantedResource = 8
-
-[node name="SwitchCross2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 900, 900 )
 
-[node name="TrainNormal_B" parent="." instance=ExtResource( 28 )]
-position = Vector2( 704, 300 )
-rotation = 1.5708
-InitialWaypoint = Vector2( 800, 300 )
+[node name="SwitchRight3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 900, 700 )
 
-[node name="TrainNormal_R" parent="." instance=ExtResource( 25 )]
-position = Vector2( 488, 1500 )
+[node name="TileBottomToLeft2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 900, 500 )
+
+[node name="TileBottomToLeft3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 300, 1100 )
+
+[node name="TileHorizontal" parent="." instance=ExtResource( 14 )]
+position = Vector2( 700, 1100 )
+
+[node name="TileBottomToLeft4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 900, 1100 )
+
+[node name="TileHorizontal2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 300 )
+
+[node name="TileHorizontal3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 500 )
+
+[node name="TileHorizontal4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 900 )
+
+[node name="TileHorizontal5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 500, 1100 )
+
+[node name="SwitchUp2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1100, 700 )
+
+[node name="TileHorizontal6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1500, 700 )
+
+[node name="TileHorizontal7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1300, 700 )
+
+[node name="SwitchUp3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1700, 700 )
+
+[node name="TileBottomToRight2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1100, 500 )
+
+[node name="TileBottomToLeft5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1700, 500 )
+
+[node name="TileHorizontal8" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1300, 500 )
+
+[node name="TileHorizontal9" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1500, 500 )
+
+[node name="SwitchLeft2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1900, 700 )
+
+[node name="TileBottomToRight3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1900, 500 )
+
+[node name="TileBottomToLeft6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1900, 900 )
+
+[node name="SwitchDown" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2300, 500 )
+
+[node name="SwitchRight4" parent="." instance=ExtResource( 22 )]
+position = Vector2( 2300, 700 )
+
+[node name="SwitchLeft3" parent="." instance=ExtResource( 26 )]
+position = Vector2( 2300, 900 )
+
+[node name="TileBottomToLeft7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 2300, 1100 )
+
+[node name="TileHorizontal10" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2500, 1100 )
+
+[node name="TileHorizontal11" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2100, 500 )
+
+[node name="TileHorizontal12" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2100, 900 )
+
+[node name="TileHorizontal13" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2500, 700 )
+
+[node name="TileHorizontal14" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2500, 500 )
+
+[node name="TileBottomToLeft8" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2700, 500 )
+
+[node name="SwitchLeft4" parent="." instance=ExtResource( 26 )]
+position = Vector2( 2700, 700 )
+
+[node name="TileVertical3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2700, 900 )
+
+[node name="TileBottomToLeft9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2700, 1100 )
+
+[node name="DropOffBottom3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1392, 290 )
+WantedResource = 4
+
+[node name="StationRight" parent="." instance=ExtResource( 27 )]
+position = Vector2( 536, 704 )
+AvailableResource = 4
+
+[node name="StationBottom" parent="." instance=ExtResource( 17 )]
+position = Vector2( 488, 128 )
+AvailableResource = 2
+
+[node name="StationBottom3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2520, 320 )
+AvailableResource = 4
+
+[node name="StationBottom2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2096, 1072 )
+rotation = 3.14159
+AvailableResource = 7
+
+[node name="DropOffBottom" parent="." instance=ExtResource( 23 )]
+position = Vector2( 96, 704 )
+rotation = 4.71239
+WantedResource = 4
+
+[node name="DropOffBottom2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 595, 1291 )
+rotation = 3.14159
+WantedResource = 7
+
+[node name="DropOffBottom4" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2880, 856 )
 rotation = 1.5708
-InitialWaypoint = Vector2( 600, 1500 )
+WantedResource = 2
+
+[node name="TrainFast_Y" parent="." instance=ExtResource( 25 )]
+position = Vector2( 900, 900 )
+InitialWaypoint = Vector2( 900, 800 )
+
+[node name="TrainNormal_B" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2500, 1100 )
+rotation = 1.5708
+InitialWaypoint = Vector2( 2600, 1100 )
 
 [node name="OilSFX" type="Node" parent="."]
 script = ExtResource( 6 )
