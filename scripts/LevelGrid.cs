@@ -6,11 +6,13 @@ public class LevelGrid : Node2D
     private bool canAddWaypoint = true;
     private Node2D emptyArea;
     private float waypointDelay = 3f;
+    private GameManager gameManager;
     
     private double smoothness = 8;  // How many waypoints created when going around a corner
     private int distAroundCorner = 104; // Half a tile length +4 
     public override void _Ready()
     {
+        gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
         //This is perhaps a temp solution for dealing with the tile overlap. Could change to check direction
         emptyArea = new Node2D();
     }
@@ -265,7 +267,13 @@ public class LevelGrid : Node2D
 
     public void OnCrash(Area2D trainArea)
     {
-        GD.Print("you've crashed and this time don't mucking delete this cathan");
+        //We prevent this from calling multiple simultaneous Game Overs in the GameManager scripts
+        if (trainArea.Name == "WaypointCollider")
+        {
+            GD.Print("crash");
+            GD.Print(this.Name);
+            gameManager.IsGameOver = true;
+        }
     }
     
     //This method exists to attempt and prevent the train from turning around whenever it contacts to waypoints

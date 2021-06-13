@@ -19,9 +19,12 @@ public class Carriage : Sprite
     public Vector2 lastWaypoint;
 
     private float displacementEpsilon = 5f;
+    protected GameManager gameManager;
 
     public override void _Ready()
     {
+        gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
+        
         waypointQueue = new Queue<Vector2>();
         if (InitialWaypoint != new Vector2(0, 0))
         {
@@ -39,7 +42,7 @@ public class Carriage : Sprite
     // Figure out whether we're going straight or curvy and call the corresponding function
     private void MoveToWaypoint(float delta) 
     {
-        if (waypointQueue.Count == 0) return; // No waypoints in queue, so do nothing.
+        if (waypointQueue.Count == 0 || gameManager.StopMovement) return; // No waypoints in queue, so do nothing. Also stops if GameManager stops movement
         
         Vector2 nextWaypoint = waypointQueue.Peek();
         Vector2 direction = this.GlobalPosition.DirectionTo(nextWaypoint);
