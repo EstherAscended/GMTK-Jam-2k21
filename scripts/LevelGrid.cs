@@ -275,7 +275,7 @@ public class LevelGrid : Node2D
             gameManager.IsGameOver = true;
             try
             {
-                GetNode<SFX>("../CrashSFX").Play();
+                GetNode<SFX>("/root/Node2D/CrashSFX").Play();
             }
             catch (Exception e)
             {
