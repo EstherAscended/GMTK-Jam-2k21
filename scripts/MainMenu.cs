@@ -14,6 +14,6 @@ public class MainMenu : Control
     }
 
     public void onPlayButtonUp() {
-        GetTree().ChangeScene("res://LevelGrid.tscn");
+        GetTree().ChangeScene("res://levels/Tutorial1.tscn");
     }
 }
