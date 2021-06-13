@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/TrainCatcher.cs" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1031.17, 10.7272 )
+extents = Vector2( 5721.77, 10.7272 )
 
 [node name="TrainCatcherH" type="Area2D"]
 script = ExtResource( 1 )

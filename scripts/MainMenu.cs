@@ -15,5 +15,6 @@ public class MainMenu : Control
 
     public void onPlayButtonUp() {
         GetTree().ChangeScene("res://levels/Tutorial1.tscn");
+        LevelManager.CurrentLevel = 0;
     }
 }

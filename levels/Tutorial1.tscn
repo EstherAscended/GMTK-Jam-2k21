@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -23,6 +23,11 @@
 [ext_resource path="res://assets/sfx/whistles/6.ogg" type="AudioStream" id=21]
 [ext_resource path="res://scenes/Switches/SwitchUp.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/Stations/DropOff/DropOffBottom.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/UI/GameOverPopup.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/UI/LevelCompletePopup.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/UI/Level1TutorialPopup.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/TrainCatcherVertical.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/TrainCatcherHorizontal.tscn" type="PackedScene" id=28]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -168,5 +173,25 @@ WantedResource = 7
 position = Vector2( 800, 300 )
 rotation = -1.5708
 InitialWaypoint = Vector2( 700, 300 )
+
+[node name="TrainCatcherV2" parent="." instance=ExtResource( 27 )]
+position = Vector2( -3088, -256 )
+
+[node name="TrainCatcherV" parent="." instance=ExtResource( 27 )]
+position = Vector2( 5176, -96 )
+
+[node name="TrainCatcherH" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1080, 2928 )
+scale = Vector2( 1.8445, 2.0585 )
+
+[node name="TrainCatcherH2" parent="." instance=ExtResource( 28 )]
+position = Vector2( 896, -768 )
+scale = Vector2( 1.8445, 2.0585 )
+
+[node name="GameOverPopup" parent="." instance=ExtResource( 24 )]
+
+[node name="LevelCompletePopup" parent="." instance=ExtResource( 25 )]
+
+[node name="TutorialPopup" parent="." instance=ExtResource( 26 )]
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]

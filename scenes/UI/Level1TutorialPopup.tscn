@@ -3,8 +3,15 @@
 [ext_resource path="res://scripts/TutorialPopup.cs" type="Script" id=1]
 
 [node name="TutorialPopup" type="AcceptDialog"]
-margin_right = 616.0
-margin_bottom = 248.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -308.0
+margin_top = -124.0
+margin_right = 308.0
+margin_bottom = 124.0
+rect_scale = Vector2( 2.22898, 2.6153 )
 window_title = "Welcome Intern!"
 script = ExtResource( 1 )
 

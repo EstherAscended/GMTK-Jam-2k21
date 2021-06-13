@@ -11,6 +11,7 @@ public class GameManager : Node
     public bool StopMovement = false;
     public LevelManager GameOverPopup;
     private LevelManager levelCompletePopup;
+
     
     public override void _Ready()
     {
@@ -32,7 +33,7 @@ public class GameManager : Node
 
         if (Input.IsActionJustPressed("restartlevel"))
         {
-            GameOverPopup.RestartLevel();
+            levelCompletePopup.RestartLevel();
         }
         
     }
@@ -45,6 +46,17 @@ public class GameManager : Node
         StopMovement = true;
         GameOverPopup.PopupCentered();
         //Anything else we want to happen when you fail a level goes here
+        
+        //This is being done to prevent carriages displaying over the game over popup 
+        //It is not a good solution, but we have two hours
+        for (int i = 0; i < GetTree().Root.GetChildren().Count; i++)
+        {
+            if (i == 0) continue;
+            else
+            {
+                GetTree().Root.GetChild<Node>(i).QueueFree();
+            }
+        }
     }
 
     private void CompleteLevel()

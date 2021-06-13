@@ -147,6 +147,5 @@ InitialWaypoint = Vector2( 1720, 328 )
 [node name="GameOverPopup" parent="." instance=ExtResource( 8 )]
 
 [node name="TutorialPopup" parent="." instance=ExtResource( 26 )]
-visible = false
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
