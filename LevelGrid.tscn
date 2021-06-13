@@ -1,6 +1,5 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://scenes/TrainEngine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tracks/Straight/TileHorizontal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Switches/SwitchLeft.tscn" type="PackedScene" id=4]
@@ -22,6 +21,7 @@
 [ext_resource path="res://assets/sfx/loading/1.ogg" type="AudioStream" id=21]
 [ext_resource path="res://scripts/SFX.cs" type="Script" id=22]
 [ext_resource path="res://assets/sfx/whistles/6.ogg" type="AudioStream" id=23]
+[ext_resource path="res://scenes/trains/TrainSlow.tscn" type="PackedScene" id=24]
 
 [node name="LevelGrid" type="Node2D"]
 __meta__ = {
@@ -135,10 +135,8 @@ position = Vector2( 1288, 336 )
 position = Vector2( 376, 344 )
 WantedResource = 3
 
-[node name="TrainEngine" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1916, 327 )
-rotation = 4.71239
-TrainSpeed = 100.0
+[node name="TrainSlow" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1952, 328 )
 InitialWaypoint = Vector2( 1720, 328 )
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
