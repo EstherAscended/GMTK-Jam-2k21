@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/rails/Rail Crossroad block 2.PNG" type="Texture" id=1]
+[ext_resource path="res://scripts/LevelGrid.cs" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.0
+
+[node name="CurvyOne2" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TopToLeft" type="Node2D" parent="."]
+position = Vector2( 0, -104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="TopToLeft"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopToLeft/Area2D"]
+shape = SubResource( 1 )
+
+[node name="LeftToTop" type="Node2D" parent="."]
+position = Vector2( -104, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="LeftToTop"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftToTop/Area2D"]
+shape = SubResource( 1 )
+
+[node name="BottomToRight" type="Node2D" parent="."]
+position = Vector2( 0, 104 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="BottomToRight"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomToRight/Area2D"]
+shape = SubResource( 2 )
+
+[node name="RightToBottom" type="Node2D" parent="."]
+position = Vector2( 104, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="RightToBottom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightToBottom/Area2D"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="TopToLeft/Area2D" to="." method="TopToLeft"]
+[connection signal="area_entered" from="LeftToTop/Area2D" to="." method="LeftToTop"]
+[connection signal="area_entered" from="BottomToRight/Area2D" to="." method="BottomToRight"]
+[connection signal="area_entered" from="RightToBottom/Area2D" to="." method="RightToBottom"]
