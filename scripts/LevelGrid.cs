@@ -273,6 +273,7 @@ public class LevelGrid : Node2D
             GD.Print("crash");
             GD.Print(this.Name);
             gameManager.IsGameOver = true;
+            GetNode<SFX>("../CrashSFX").Play();
         }
     }
     
