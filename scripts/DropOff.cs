@@ -14,6 +14,8 @@ public class DropOff : Sprite
         gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
         
         resourceSprite = GetNode<Sprite>("ResourceSprite");
+        resourceSprite.GlobalRotation = 0f;
+                
         switch (WantedResource)
         {
             case Resources.Alcohol:
