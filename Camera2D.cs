@@ -33,6 +33,7 @@ public class Camera2D : Godot.Camera2D
         {
             this.GlobalPosition += new Vector2(0, CAMERA_SPEED * this.Zoom.y);
         }
+
     }
 
     public override void _Input(InputEvent inputEvent)
@@ -47,6 +48,14 @@ public class Camera2D : Godot.Camera2D
         {
             GD.Print("Zoom in!");
             this.Zoom += new Vector2(-0.25f, -0.25f);
+        }
+        
+        // If the panning button (usually right mouse button) is held, move the camera the opposite direction of
+        // the mouse movement. Also account for the speed difference needed when we're zoomed out.
+        if (inputEvent is InputEventMouseMotion && Input.IsActionPressed("pan_button"))
+        {
+            Vector2 relativeMovement = ((InputEventMouseMotion) inputEvent).Relative;
+            this.GlobalPosition -= relativeMovement * this.Zoom;
         }
     }
     
