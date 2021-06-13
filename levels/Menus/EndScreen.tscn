@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/EndScreen.cs" type="Script" id=1]
 [ext_resource path="res://scenes/EmergencyBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/art/rails/Rail Tileset Block Thing.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/uiassets/Star_2.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/art/uiassets/Star_3.PNG" type="Texture" id=5]
+[ext_resource path="res://assets/art/uiassets/Star_1.PNG" type="Texture" id=6]
 [ext_resource path="res://assets/sfx/intro.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/art/uiassets/You_win.png" type="Texture" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Rail Tileset Block Thing.png 0"
@@ -144,16 +148,6 @@ tile_data = PoolIntArray( 65541, 6, 0, 65542, 6, 0, 65543, 6, 0, 65544, 6, 0, 65
 stream = ExtResource( 7 )
 autoplay = true
 
-[node name="Label" type="Label" parent="."]
-margin_left = 584.0
-margin_top = 360.0
-margin_right = 648.0
-margin_bottom = 374.0
-rect_scale = Vector2( 12.1498, 12.2565 )
-text = "YOU WIN!"
-align = 1
-valign = 1
-
 [node name="Button" type="Button" parent="."]
 margin_left = 808.0
 margin_top = 640.0
@@ -161,5 +155,26 @@ margin_right = 891.0
 margin_bottom = 660.0
 rect_scale = Vector2( 3.84746, 3.79351 )
 text = "Main Menu"
+
+[node name="Star" type="Sprite" parent="."]
+position = Vector2( 312, 224 )
+scale = Vector2( 0.9, 0.985065 )
+texture = ExtResource( 6 )
+offset = Vector2( 1360, 536.005 )
+
+[node name="Star2" type="Sprite" parent="."]
+position = Vector2( 736, 776 )
+scale = Vector2( 0.9, 0.985065 )
+texture = ExtResource( 5 )
+
+[node name="Star3" type="Sprite" parent="."]
+position = Vector2( 560, 760 )
+scale = Vector2( 0.9, 0.985065 )
+texture = ExtResource( 4 )
+
+[node name="YouWin" type="Sprite" parent="."]
+position = Vector2( 968, 440 )
+scale = Vector2( 1.37, 1.65625 )
+texture = ExtResource( 8 )
 
 [connection signal="button_down" from="Button" to="." method="ReturnToMenu"]
