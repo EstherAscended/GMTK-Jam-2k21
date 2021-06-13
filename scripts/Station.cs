@@ -58,7 +58,14 @@ public class Station : Sprite
             GD.Print("I'm so full of ", AvailableResource.ToString(), " yum!");
         
             resourceSprite.Texture = new ImageTexture();
-            GetNode<SFX>("../PickUpSFX").Play();
+            if (AvailableResource == Resources.Oil || AvailableResource == Resources.Alcohol)
+            {
+                GetNode<SFX>("../OilSFX").Play();
+            }
+            else
+            {
+                GetNode<SFX>("../PickUpSFX").Play();
+            }
         }
     }
 }
