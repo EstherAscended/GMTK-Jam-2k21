@@ -4,6 +4,7 @@ using System;
 public class ZoomingCamera : Camera2D
 {
     private const float CAMERA_SPEED = 10;
+    private const float ZOOM_STEP = 0.25f;
 
     public override void _Ready()
     {
@@ -41,13 +42,11 @@ public class ZoomingCamera : Camera2D
         // When an input event happens, check if it's a zoom event. If so, zoom in or out.
         if (inputEvent.IsActionPressed("zoom_out_one_step"))
         {
-            GD.Print("Zoom out!");
-            this.Zoom += new Vector2(0.25f, 0.25f);
+            this.Zoom += new Vector2(ZOOM_STEP, ZOOM_STEP);
         }
-        if (inputEvent.IsActionPressed("zoom_in_one_step"))
+        if (inputEvent.IsActionPressed("zoom_in_one_step") && !Zoom.IsEqualApprox(new Vector2(0.25f, 0.25f)))
         {
-            GD.Print("Zoom in!");
-            this.Zoom += new Vector2(-0.25f, -0.25f);
+            this.Zoom += new Vector2(-ZOOM_STEP, -ZOOM_STEP);
         }
         
         // If the panning button (usually right mouse button) is held, move the camera the opposite direction of
