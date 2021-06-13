@@ -40,7 +40,7 @@ public class LevelManager : Popup
         }
         else
         {
-            //TODO: Add end screen that returns to main menu
+            GetTree().ChangeScene("res://levels/Menus/EndScreen.tscn");
         }
     }
 
