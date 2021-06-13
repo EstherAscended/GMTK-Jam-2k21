@@ -150,9 +150,6 @@ InitialWaypoint = Vector2( 1720, 328 )
 
 [node name="GameOverPopup" parent="." instance=ExtResource( 8 )]
 
-<<<<<<< HEAD
-[node name="TutorialPopup" parent="." instance=ExtResource( 26 )]
-=======
 [node name="TutorialPopup" parent="." instance=ExtResource( 30 )]
 
 [node name="CrashSFX" type="Node" parent="."]
