@@ -96,11 +96,12 @@ public class Carriage : Sprite
         newCarriage.InitialWaypoint = this.lastWaypoint;
         newCarriage.TrainSpeed = this.TrainSpeed;
         newCarriage.PulledBy = this;
-        
-        if (resources == Resources.Dynamite) newCarriage.Texture = GD.Load<Texture>("res://assets/art/Carriage Gold Gem Dynamite.PNG");
-        else if (resources == Resources.Alcohol) newCarriage.Texture = GD.Load<Texture>("res://assets/art/Carriage Oli and Alcohol.PNG");
-        else newCarriage.Texture = GD.Load<Texture>("res://assets/art/Apple and Mail Carriage.PNG");
-        
+
+        String textureName = ResourcesMethods.GetResourceNameForResource(resources);
+        String texturePath = "res://assets/art/carriages/" + 
+                                (textureName == null ? "Carriage Gold Gem Dynamite.PNG" : textureName);
+        newCarriage.Texture = GD.Load<Texture>(texturePath);
+
         newCarriage.resources = resources;
         this.Pulling = newCarriage;
         GetTree().Root.AddChild(newCarriage);
