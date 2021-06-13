@@ -16,5 +16,6 @@ public class TutorialPopup : AcceptDialog
     public void OnConfirm()
     {
         gameManager.StopMovement = false;
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
     }
 }
