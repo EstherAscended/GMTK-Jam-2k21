@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=25]
 [ext_resource path="res://assets/sfx/crashes/3.ogg" type="AudioStream" id=26]
 [ext_resource path="res://assets/sfx/crashes/1.ogg" type="AudioStream" id=27]
+[ext_resource path="res://assets/sfx/loading/oil.ogg" type="AudioStream" id=28]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -187,5 +188,11 @@ stream = ExtResource( 26 )
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="CrashSFX"]
 stream = ExtResource( 25 )
+
+[node name="OilSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OilSFX"]
+stream = ExtResource( 28 )
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]

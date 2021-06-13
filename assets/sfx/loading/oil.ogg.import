@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/oil.ogg-cf9655ebdd9ea0c01409f4c117251530.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/loading/oil.ogg"
+dest_files=[ "res://.import/oil.ogg-cf9655ebdd9ea0c01409f4c117251530.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
