@@ -151,7 +151,6 @@ InitialWaypoint = Vector2( 1720, 328 )
 [node name="GameOverPopup" parent="." instance=ExtResource( 8 )]
 
 [node name="TutorialPopup" parent="." instance=ExtResource( 30 )]
-visible = false
 
 [node name="CrashSFX" type="Node" parent="."]
 script = ExtResource( 22 )

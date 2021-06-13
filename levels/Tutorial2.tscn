@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -27,6 +27,10 @@
 [ext_resource path="res://scenes/trains/TrainNormal_R.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/Switches/SwitchLeft.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/Stations/Pickup/StationLeft.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/sfx/crashes/2.ogg" type="AudioStream" id=28]
+[ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=29]
+[ext_resource path="res://assets/sfx/crashes/3.ogg" type="AudioStream" id=30]
+[ext_resource path="res://assets/sfx/crashes/1.ogg" type="AudioStream" id=31]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -215,5 +219,20 @@ InitialWaypoint = Vector2( 200, 700 )
 position = Vector2( 584, 200 )
 rotation = 1.5708
 InitialWaypoint = Vector2( 700, 200 )
+
+[node name="CrashSFX" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 31 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 28 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 30 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="CrashSFX"]
+stream = ExtResource( 29 )
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
