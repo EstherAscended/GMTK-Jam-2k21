@@ -50,6 +50,7 @@ public class Carriage : Sprite
         Vector2 direction = this.GlobalPosition.DirectionTo(nextWaypoint);
         double angle = Math.Atan2(direction.y, direction.x);
         this.GlobalRotation = (float) (angle + Math.PI / 2);
+        CarriedResourceSprite.GlobalRotation = 0f;
 
         this.Position = Lerp(lastWaypoint, nextWaypoint, delta); 
         if (IsDistanceSmallEnough(this.Position, nextWaypoint, displacementEpsilon))
