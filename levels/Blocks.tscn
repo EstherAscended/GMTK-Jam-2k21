@@ -220,6 +220,9 @@ position = Vector2( 1688, 1288 )
 rotation = 1.5708
 WantedResource = 8
 
+[node name="SwitchCross2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 900, 900 )
+
 [node name="TrainNormal_B" parent="." instance=ExtResource( 28 )]
 position = Vector2( 704, 300 )
 rotation = 1.5708
@@ -229,8 +232,5 @@ InitialWaypoint = Vector2( 800, 300 )
 position = Vector2( 488, 1500 )
 rotation = 1.5708
 InitialWaypoint = Vector2( 600, 1500 )
-
-[node name="SwitchCross2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 900, 900 )
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
