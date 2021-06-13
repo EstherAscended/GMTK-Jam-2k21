@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Punished T Junction.png-f3936043f836f3fd18f6aab5ccdf9193.stex"
+path="res://.import/rail_junction.png-4f708acc42f3c41b78de6d9f9fbbb8e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Punished T Junction.png"
-dest_files=[ "res://.import/Punished T Junction.png-f3936043f836f3fd18f6aab5ccdf9193.stex" ]
+source_file="res://assets/art/rails/rail_junction.png"
+dest_files=[ "res://.import/rail_junction.png-4f708acc42f3c41b78de6d9f9fbbb8e5.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rail Half block End.PNG-bb9de898dca30d573be615db73054d70.stex"
+path="res://.import/Punished T Junction.png-07cf16a0d2651734a07920bf525f3547.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Rail Half block End.PNG"
-dest_files=[ "res://.import/Rail Half block End.PNG-bb9de898dca30d573be615db73054d70.stex" ]
+source_file="res://assets/art/rails/Punished T Junction.png"
+dest_files=[ "res://.import/Punished T Junction.png-07cf16a0d2651734a07920bf525f3547.stex" ]
 
 [params]
 

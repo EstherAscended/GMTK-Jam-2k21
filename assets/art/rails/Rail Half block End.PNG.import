@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rail_cross.png-dc662ee4e9cc4cd2adc731046bcb2491.stex"
+path="res://.import/Rail Half block End.PNG-fa5f59406b2e000068286ff8b9909df4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/rail_cross.png"
-dest_files=[ "res://.import/rail_cross.png-dc662ee4e9cc4cd2adc731046bcb2491.stex" ]
+source_file="res://assets/art/rails/Rail Half block End.PNG"
+dest_files=[ "res://.import/Rail Half block End.PNG-fa5f59406b2e000068286ff8b9909df4.stex" ]
 
 [params]
 
