@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Camera2D : Godot.Camera2D
+public class ZoomingCamera : Camera2D
 {
     private const float CAMERA_SPEED = 10;
 
