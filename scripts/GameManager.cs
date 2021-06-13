@@ -9,10 +9,13 @@ public class GameManager : Node
     private bool canGameEnd = true;
     public bool IsLevelComplete = false;
     public bool StopMovement = false;
+    public LevelManager GameOverPopup;
+    private LevelManager levelCompletePopup;
     
     public override void _Ready()
     {
-
+        GameOverPopup = GetTree().Root.GetChild(0).GetNode<LevelManager>("GameOverPopup");
+        levelCompletePopup = GetTree().Root.GetChild(0).GetNode<LevelManager>("LevelCompletePopup");
     }
 
     public override void _Process(float delta)
@@ -26,6 +29,11 @@ public class GameManager : Node
         {
             CompleteLevel();
         }
+
+        if (Input.IsActionJustPressed("restartlevel"))
+        {
+            GameOverPopup.RestartLevel();
+        }
         
     }
 
@@ -35,6 +43,7 @@ public class GameManager : Node
         canGameEnd = false;
         IsGameOver = true;
         StopMovement = true;
+        GameOverPopup.PopupCentered();
         //Anything else we want to happen when you fail a level goes here
     }
 
@@ -43,6 +52,7 @@ public class GameManager : Node
         GD.Print("Level Complete");
         IsLevelComplete = true;
         StopMovement = true;
+        levelCompletePopup.PopupCentered();
         //Anything we want to happen when you complete a level goes here
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://ZoomingCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/Switches/SwitchDown.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/GameManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/tracks/Curve/TileBottomToRight.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/trains/TrainFast_B.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/UI/GameOverPopup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=9]
 [ext_resource path="res://scripts/Music.cs" type="Script" id=10]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=11]
@@ -24,6 +24,8 @@
 [ext_resource path="res://scripts/SFX.cs" type="Script" id=22]
 [ext_resource path="res://assets/sfx/whistles/6.ogg" type="AudioStream" id=23]
 [ext_resource path="res://scenes/trains/TrainSlow.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/UI/LevelCompletePopup.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/UI/Level1TutorialPopup.tscn" type="PackedScene" id=26]
 
 [node name="LevelGrid" type="Node2D"]
 __meta__ = {
@@ -68,7 +70,7 @@ position = Vector2( 1016, 528 )
 position = Vector2( 1216, 528 )
 
 [node name="TileHorizontal6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1416, 528 )
+position = Vector2( 1416, 527 )
 
 [node name="SwitchDown2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1816, 327 )
@@ -129,23 +131,22 @@ position = Vector2( 424, 528 )
 [node name="TileHorizontal10" parent="." instance=ExtResource( 3 )]
 position = Vector2( 224, 528 )
 
-[node name="StationBottom2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 984, 336 )
-AvailableResource = 6
-
 [node name="StationBottom" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1288, 336 )
+position = Vector2( 1200, 336 )
 
 [node name="DropOffBottom" parent="." instance=ExtResource( 19 )]
 position = Vector2( 376, 344 )
 WantedResource = 3
 
-[node name="TrainFast_B" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1616, 1040 )
-InitialWaypoint = Vector2( 1616, 1000 )
-
 [node name="TrainSlow" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1952, 328 )
 InitialWaypoint = Vector2( 1720, 328 )
+
+[node name="LevelCompletePopup" parent="." instance=ExtResource( 25 )]
+
+[node name="GameOverPopup" parent="." instance=ExtResource( 8 )]
+
+[node name="TutorialPopup" parent="." instance=ExtResource( 26 )]
+visible = false
 
 [connection signal="finished" from="Music/NormalLeadIn" to="Music" method="_on_NormalLeadIn_finished"]
