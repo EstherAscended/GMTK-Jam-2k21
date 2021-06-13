@@ -27,6 +27,7 @@ public class LevelManager : Popup
     public void LoadMainMenu()
     {
         GD.Print("Load main menu");
+        GetTree().ChangeScene("res://levels/Menus/MainMenu.tscn");
     }
 
     public void LoadNextLevel()

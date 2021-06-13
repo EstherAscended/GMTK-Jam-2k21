@@ -9,6 +9,7 @@ public class TutorialPopup : AcceptDialog
     {
         gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
         gameManager.StopMovement = true;
+        LevelManager.CurrentLevel = 0;
         PopupCentered();
     }
 

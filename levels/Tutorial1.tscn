@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://scenes/UI/Level1TutorialPopup.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/TrainCatcherVertical.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/TrainCatcherHorizontal.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/EmergencyBackground.tscn" type="PackedScene" id=29]
 [ext_resource path="res://assets/sfx/crashes/2.ogg" type="AudioStream" id=33]
 [ext_resource path="res://assets/sfx/crashes/4.ogg" type="AudioStream" id=34]
 [ext_resource path="res://assets/sfx/crashes/3.ogg" type="AudioStream" id=35]
@@ -38,6 +39,8 @@
 __meta__ = {
 "_edit_vertical_guides_": [ -88.0 ]
 }
+
+[node name="Emergency Background" parent="." instance=ExtResource( 29 )]
 
 [node name="ZoomingCamera" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1248, 768 )
