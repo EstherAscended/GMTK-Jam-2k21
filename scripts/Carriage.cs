@@ -20,10 +20,12 @@ public class Carriage : Sprite
 
     private float displacementEpsilon = 5f;
     protected GameManager gameManager;
+    public Sprite CarriedResourceSprite;
 
     public override void _Ready()
     {
         gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
+        CarriedResourceSprite = GetNode<Sprite>("CarriedResourceSprite");
         
         waypointQueue = new Queue<Vector2>();
         if (InitialWaypoint != new Vector2(0, 0))
@@ -105,9 +107,17 @@ public class Carriage : Sprite
                                 (textureName == null ? "Carriage Gold Gem Dynamite.PNG" : textureName);
         newCarriage.Texture = GD.Load<Texture>(texturePath);
 
+
         newCarriage.resources = resources;
         this.Pulling = newCarriage;
         GetTree().Root.AddChild(newCarriage);
+        
+        //Sets carriage resource icon based on resource type of carriage
+        string resourceTextureName = ResourcesMethods.GetResourceIconName(resources);
+        string resourceTexturePath = "res://assets/art/resources/" +
+                                     (resourceTextureName == null ? "Gold.PNG" : resourceTextureName);
+        newCarriage.CarriedResourceSprite.Texture = GD.Load<Texture>(resourceTexturePath);
+        
         return true;
     }
 
@@ -138,6 +148,12 @@ public class Carriage : Sprite
         if (this.resources == resources) return this;
         if (this.Pulling == null) return null;
         return this.Pulling.getNextCarriageWithResource(resources);
+    }
+    public void TrainBodyCollision(Area2D area)
+    {
+        if (area.Name != "CrashChecker") return;
+        GD.Print("Body collision");
+        gameManager.IsGameOver = true;
     }
 
 }

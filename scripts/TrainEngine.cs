@@ -12,6 +12,13 @@ public class TrainEngine : Carriage
     public PackedScene carriageScene;
     public Carriage carriageSpawn;
     public Carriage secondCarriage;
+
+    public void TrainBodyCollision(Area2D area)
+    {
+        if (area.Name != "CrashChecker") return;
+        GD.Print("Body collision");
+        gameManager.IsGameOver = true;
+    }
     
     public override void _Ready()
     {

@@ -1,15 +1,18 @@
 using Godot;
 using System;
 
-public class DropOffBottom : Sprite
+public class DropOff : Sprite
 {
     public bool HasReceivedResource = false;
     [Export] public Resources WantedResource = Resources.Alcohol;
     private string imgPath = "res://assets/art/resources/";
-    private Sprite resourceSprite; 
+    private Sprite resourceSprite;
+    private GameManager gameManager;
     
     public override void _Ready()
     {
+        gameManager = GetTree().Root.GetChild(0).GetNode<GameManager>("GameManager");
+        
         resourceSprite = GetNode<Sprite>("ResourceSprite");
         switch (WantedResource)
         {
@@ -61,5 +64,6 @@ public class DropOffBottom : Sprite
         resourceSprite.Texture = new ImageTexture();
         GetNode<SFX>("../DropOffSFX").Play();
 
+        gameManager.ResourcesCollected++;
     }
 }

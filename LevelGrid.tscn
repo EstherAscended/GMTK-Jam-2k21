@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/tracks/Straight/TileVertical.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/tracks/Straight/TileHorizontal.tscn" type="PackedScene" id=3]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Switches/SwitchDown.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/GameManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/tracks/Curve/TileBottomToRight.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/trains/TrainFast_B.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/sfx/music/Simple loop.wav" type="AudioStream" id=9]
 [ext_resource path="res://scripts/Music.cs" type="Script" id=10]
 [ext_resource path="res://assets/sfx/music/Simple loop lead in.wav" type="AudioStream" id=11]
@@ -134,6 +135,10 @@ position = Vector2( 1288, 336 )
 [node name="DropOffBottom" parent="." instance=ExtResource( 19 )]
 position = Vector2( 376, 344 )
 WantedResource = 3
+
+[node name="TrainFast_B" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1616, 1040 )
+InitialWaypoint = Vector2( 1616, 1000 )
 
 [node name="TrainSlow" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1952, 328 )

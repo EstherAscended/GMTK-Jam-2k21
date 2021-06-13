@@ -44,5 +44,33 @@ public static class ResourcesMethods
                 return null;
         }
     }
+    public static String GetResourceIconName(Resources resource)
+    {
+        switch (resource)
+        {
+            case Resources.Alcohol:
+                return "Alcohol.PNG";
+            case Resources.Apples:
+                return "Apple.PNG";
+            case Resources.Coal:
+                return "Coal.PNG";
+            case Resources.Dynamite:
+                return "Dynamite.PNG";
+            case Resources.Gems:
+                return "Gems.PNG";
+            case Resources.Gold:
+                return "Gold.PNG";
+            case Resources.Mail:
+                return "Mail.PNG";
+            case Resources.Oil:
+                return "Oil.PNG";
+            case Resources.Steel:
+                return "Steel.PNG";
+            case Resources.Wood:
+                return "Wood.PNG";
+            default:
+                return null;
+        }
+    }
 
 }

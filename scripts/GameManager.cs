@@ -41,6 +41,8 @@ public class GameManager : Node
     private void CompleteLevel()
     {
         GD.Print("Level Complete");
+        IsLevelComplete = true;
+        StopMovement = true;
         //Anything we want to happen when you complete a level goes here
     }
 }
