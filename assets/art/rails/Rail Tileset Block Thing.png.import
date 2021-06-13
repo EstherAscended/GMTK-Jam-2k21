@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rail_corner.png-1d2fbbf2061c28dd8c2bcad1cfe3eea7.stex"
+path="res://.import/Rail Tileset Block Thing.png-f39b5e551e6409422830de2ee72ba4f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/rail_corner.png"
-dest_files=[ "res://.import/rail_corner.png-1d2fbbf2061c28dd8c2bcad1cfe3eea7.stex" ]
+source_file="res://assets/art/rails/Rail Tileset Block Thing.png"
+dest_files=[ "res://.import/Rail Tileset Block Thing.png-f39b5e551e6409422830de2ee72ba4f5.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rail_straight.png-76f028512b60273e9fe11689c97a2141.stex"
+path="res://.import/rail_straight.png-392b36f3e6e549f0feff45fcb38b5cde.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/rail_straight.png"
-dest_files=[ "res://.import/rail_straight.png-76f028512b60273e9fe11689c97a2141.stex" ]
+source_file="res://assets/art/rails/rail_straight.png"
+dest_files=[ "res://.import/rail_straight.png-392b36f3e6e549f0feff45fcb38b5cde.stex" ]
 
 [params]
 

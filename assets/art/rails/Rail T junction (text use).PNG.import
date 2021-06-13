@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rail Straight.PNG-0f8ea458a22d305864426e7e1448aeb7.stex"
+path="res://.import/Rail T junction (text use).PNG-d42425663bb7da3a6652df46cf98c09b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Rail Straight.PNG"
-dest_files=[ "res://.import/Rail Straight.PNG-0f8ea458a22d305864426e7e1448aeb7.stex" ]
+source_file="res://assets/art/rails/Rail T junction (text use).PNG"
+dest_files=[ "res://.import/Rail T junction (text use).PNG-d42425663bb7da3a6652df46cf98c09b.stex" ]
 
 [params]
 

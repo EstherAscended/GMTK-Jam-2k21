@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rail Crossroad block 2.PNG-7aa21c56106e99badd4ff53fce7e598b.stex"
+path="res://.import/Rail Bend.PNG-66d286db13b13592393be2fcbd32470b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Rail Crossroad block 2.PNG"
-dest_files=[ "res://.import/Rail Crossroad block 2.PNG-7aa21c56106e99badd4ff53fce7e598b.stex" ]
+source_file="res://assets/art/rails/Rail Bend.PNG"
+dest_files=[ "res://.import/Rail Bend.PNG-66d286db13b13592393be2fcbd32470b.stex" ]
 
 [params]
 
