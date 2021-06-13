@@ -10,6 +10,8 @@ public class Station : Sprite
     public override void _Ready()
     {
         resourceSprite = GetNode<Sprite>("ResourceSprite");
+        resourceSprite.GlobalRotation = 0f;
+        
         switch (AvailableResource)
         {
             case Resources.Alcohol:
